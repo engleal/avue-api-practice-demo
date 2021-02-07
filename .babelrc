@@ -1,0 +1,38 @@
+{
+  "presets": [
+    [
+      "env",
+      {
+        "modules": false,
+        "targets": {
+          "browsers": [
+            "> 1%",
+            "last 2 versions",
+            "not ie <= 8"
+          ]
+        }
+      }
+    ],
+    "stage-2",
+  ],
+  "plugins": [
+    [
+      "prismjs",
+      {
+        "languages": [
+          "javascript",
+          "css",
+          "html"
+        ], //这是语言类型
+        "plugins": [
+          "previewers",
+          "autolinker",
+          "line-numbers",
+          "copy-to-clipboard"
+        ], //使用了行号还可以添加其他插件，具体去官网看看吧
+        "theme": "twilight", //主题！！
+        "css": true
+      }
+    ]
+  ]
+}

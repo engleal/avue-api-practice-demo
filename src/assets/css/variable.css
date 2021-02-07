@@ -1,0 +1,20 @@
+/* 变量文件 */
+
+:root {
+    /* 普通family */
+    --common-family: "'PingFangSC-Regular', 'helvetica neue', tahoma, 'PingFang SC', 'microsoft yahei', arial, 'hiragino sans gb', sans-serif"; 
+    /* 视口宽度 */
+    --view-width: 100vw;
+    /* 视口高度 */
+    --view-height: 100vh;
+    /* 设计图宽度 */
+    --design-width: 1360px;
+    /* 头部高度 */
+    --header-height: 70px;
+    /* 头部高度的负数 */
+    --negative-header-height: -70px;
+    /* 底部高度 */
+    --footer-height: 374px;
+    /* banner高度 */
+    --banner-height: 380px;
+}
