@@ -1,0 +1,7 @@
+[auth]
+token="178c17e7f1f74b828f05231f9a0419bb6a9de5e0c7da4d7da67569b511d62459"
+
+[defaults]
+url = https://sentry.io
+org = sentry
+project = avue-api-practice-demo

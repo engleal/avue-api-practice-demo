@@ -20,11 +20,23 @@ import Prism from 'prismjs'
 import '@/assets/css/prism.css'  
 import '@/assets/css/prism-plugins.css' 
 Prism.highlightAll()
+
+
 import RockyCore from './components/index'
 Vue.use(RockyCore)
 
+import * as Sentry from "@sentry/vue";
+import { Integrations } from "@sentry/tracing";
+process.env.NODE_ENV === "production" && Sentry.init({
+  Vue,
+  dsn: "https://127496a59f874c30a9785fe18f4f2b78@sentry.io/5627082",
+  integrations: [new Integrations.BrowserTracing()],
+  tracesSampleRate: 1.0,
+  logErrors:true,
+  attachProps:true
+});
+
 Vue.config.productionTip = false;
-/* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,

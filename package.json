@@ -10,6 +10,9 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "@sentry/browser": "^6.1.0",
+    "@sentry/tracing": "^6.1.0",
+    "@sentry/vue": "^6.1.0",
     "@smallwei/avue": "^2.7.9",
     "element-ui": "^2.15.0",
     "prismjs": "^1.23.0",

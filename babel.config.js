@@ -1,4 +1,10 @@
-{
+// const prodPlugins = [];
+// // 发布阶段，则向`prodPlugins `数组中加入插件`transform-remove-console`
+// if (process.env.NODE_ENV !== 'production') {
+//   prodPlugins.push('transform-remove-console')
+// }
+
+module.exports = {
   "presets": [
     [
       "env",
@@ -33,6 +39,7 @@
         "theme": "twilight", //主题！！
         "css": true
       }
-    ]
+    ],
+    // ...prodPlugins
   ]
 }

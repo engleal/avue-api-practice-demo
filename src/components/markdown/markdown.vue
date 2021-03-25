@@ -2,7 +2,7 @@
   <section class="markdown-component-conatainer">
     <h1>
       {{title}}
-      <span class="subtitle">{{subtitle}}</span>
+      <span class="subtitle">{{subTitle}}</span>
       <p class="effectDesc">{{effectDesc}}</p>
     </h1>
     <h2 class="scene">
@@ -25,7 +25,7 @@ export default {
       type: String,
       default: ""
     },
-    subtitle: {
+    subTitle: {
       type: String,
       default: ""
     },

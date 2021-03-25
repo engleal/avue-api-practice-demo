@@ -5,7 +5,7 @@
         /* 主要文字颜色 */
         --main-title-color: #000000;
         /* 主要文字颜色 白色 */
-        --main-title-color-light: #fff;
+        --main-title-color-light: #FFF;
         /* 副标题文字颜色 */
         --sub-title-color: #CCCCCC;
         /* 副标题文字颜色 更浅 */
@@ -15,7 +15,7 @@
         /* 正文颜色 */
         --mian-text-color: #666666;
         /* 主要背景色 */
-        --main-background-color: #fff;
+        --main-background-color: #FFF;
         /* 主要背景色 深色 */
         --main-dark-background-color: #000;
         /* 次要背景色 */
@@ -31,7 +31,7 @@
         /* 激活的阴影 */
         --active-shadow: 0 2px 14px 0 rgba(0, 0, 0, .3);
         /* 边框主要颜色 */
-        --mian-border-color: #EBEBEB;
+        --mian-border-color: #ECECEC;
         /* 激活边框 */
         --active-border-color: #00A4FF;
     }
@@ -44,7 +44,7 @@
         /* 主要文字颜色 */
         --main-title-color: #000000;
         /* 主要文字颜色 白色 */
-        --main-title-color-light: #fff;
+        --main-title-color-light: #FFF;
         /* 副标题文字颜色 */
         --sub-title-color: #CCCCCC;
         /* 副标题文字颜色 更浅 */
@@ -54,7 +54,7 @@
         /* 正文颜色 */
         --mian-text-color: #666666;
         /* 主要背景色 */
-        --main-background-color: #fff;
+        --main-background-color: #FFF;
         /* 主要背景色 深色 */
         --main-dark-background-color: #000;
         /* 次要背景色 */
@@ -70,7 +70,7 @@
         /* 激活的阴影 */
         --active-shadow: 0 2px 14px 0 rgba(0, 0, 0, .3);
         /* 边框主要颜色 */
-        --mian-border-color: #EBEBEB;
+        --mian-border-color: #ECECEC;
         /* 激活边框 */
         --active-border-color: #00A4FF;
     }
