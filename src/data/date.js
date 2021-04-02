@@ -7,129 +7,176 @@ let effectDescSource = "";
 let sceneSource = {
     title: "何时使用",
     desc: "",
-    features: [
-        ""
-    ]
+    features: [""]
 };
 
 let attributesList = [
     {
-        attribute: "value",
-        desc: "输入框内容",
+        attribute: "type",
+        desc: "显示类型",
         dataType: "string",
         params: "-",
-        defaultValue: "-"
+        value:
+            "year|month|date|dates| week|datetime|datetimerange|daterange|monthrange",
+        defaultValue: "date"
     },
     {
-        attribute: "maxlength",
-        desc: "最大输入长度",
-        dataType: "number",
+        attribute: "size",
+        desc: "输入框尺寸",
+        dataType: "string",
         params: "-",
+        value: "large|small|mini",
         defaultValue: "-"
     },
     {
-        attribute: "minlength",
-        desc: "最小输入长度",
-        dataType: "number",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "showPassword",
-        desc: "是否显示切换密码图标",
+        attribute: "unlinkPanels",
+        desc: "选择时间范围时有效吗，是否允许各自面板单独切换月份",
         dataType: "boolean",
         params: "-",
+        value: "true/false",
         defaultValue: "true"
-    },
-    {
-        attribute: "showWordLimit",
-        desc:
-            '是否显示输入字数统计，只在 type = "text" 或 type = "textarea" 时有效',
-        dataType: "boolean",
-        params: "-",
-        defaultValue: "false"
-    },
-    {
-        attribute: "prefixIcon",
-        desc: "输入框头部图标",
-        dataType: "string(element-icon) | slot(name=prefix)",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "suffixIcon",
-        desc: "输入框尾部图标",
-        dataType: "string(element-icon) | slot(name=suffix)",
-        params: "-",
-        defaultValue: "-"
     },
     {
         attribute: "readonly",
         desc: "是否只读",
         dataType: "boolean",
         params: "-",
+        value: "true/false",
         defaultValue: "false"
     },
     {
-        attribute: "placeholder",
-        desc: "输入框占位文本",
-        dataType: "string",
+        attribute: "defaultValue",
+        desc: "默认显示的时间",
+        dataType: "date",
         params: "-",
+        value: "可被new Date()解析",
         defaultValue: "-"
     },
     {
-        attribute: "autosize",
-        desc:
-            '自适应内容高度，只对 type="textarea" 有效，可传入对象，如，{ minRows: 2, maxRows: 6 }',
-        dataType: "boolean | object",
+        attribute: "defaultTime",
+        desc: `范围选择时选中日期所使用的当日内具体时刻，如["12:00:00","18:00:00"]`,
+        dataType: "string[]",
         params: "-",
-        defaultValue: "false"
+        vaule: "",
+        defaultValue: "-"
+    },
+    {
+        attribute: "rangeSeparator",
+        desc: "选择范围时的分隔符",
+        dataType: "string",
+        params: "-",
+        value: "",
+        defaultValue: "-"
+    },
+    {
+        attribute: "startPlaceholder",
+        desc: "范围选择时开始日期的占位内容",
+        dataType: "string",
+        params: "-",
+        value: "",
+        defaultValue: "-"
+    },
+    {
+        attribute: "endPlaceholder",
+        desc: "范围选择时结束日期的占位内容",
+        dataType: "string",
+        params: "-",
+        value: "",
+        defaultValue: "-"
+    },
+    {
+        attribute: "format",
+        desc: "显示在输入框中的格式",
+        dataType: "string",
+        params: "-",
+        value:
+            "详情见：https://element.eleme.cn/#/zh-CN/component/date-picker#ri-qi-ge-shi",
+        defaultValue: "yyyy-MM-dd"
+    },
+    {
+        attribute: "clearable",
+        desc: "是否显示清除按钮",
+        dataType: "boolean",
+        params: "-",
+        value: "true/false",
+        defaultValue: "true"
     },
     {
         attribute: "disabled",
         desc: "是否禁用",
         dataType: "boolean",
         params: "-",
+        value: "true/false",
         defaultValue: "false"
     },
     {
-        attribute: "autocomplete",
-        desc: "自动补全(on | off)",
-        dataType: "string",
+        attribute: "pickerOptions",
+        desc: "当前时间日期选择器特有的选项",
+        dataType: "object",
         params: "-",
-        defaultValue: "off"
+        value: `pickerOptions = {
+            // 设置快捷选项
+            shortcuts: {
+                text: "",
+                onClick: () => {}
+            },
+            // 设置禁用状态，参数为当前日期，要求返回 Boolean
+            disabledData: now => {},
+            // 设置日期的 className
+            cellClassName: date => {},
+            // 周起始日
+            firstDayOfWeek: 7,
+            // 选中日期后会执行的回调，只有当 type为daterange 或 datetimerange 才生效
+            onPick: (maxDate, minDate) => {}
+        }`,
+        defaultValue: "{}"
     },
     {
-        attribute: "prepend",
-        desc: "前置文字(只接受文字Avue源码定死了)",
+        attribute: "valueFormat",
+        desc: "可选，绑定值的格式。不指定则绑定值为 Date 对象",
         dataType: "string",
         params: "-",
+        value:
+            "详情见：https://element.eleme.cn/#/zh-CN/component/date-picker#ri-qi-ge-shi",
         defaultValue: "-"
     },
     {
-        attribute: "append",
-        desc: "后置文字(只接受文字Avue源码定死了)",
+        attribute: "placeholder",
+        desc: "范围选择时结束日期的占位内容",
         dataType: "string",
         params: "-",
+        value: "-",
         defaultValue: "-"
     }
 ];
 
 let eventsList = [
     {
-        attribute: "prependClick",
-        desc: "前置文字点击事件",
+        attribute: "blur",
+        desc: "失去焦点事件",
         dataType: "function",
-        params: "无",
+        params: "(date,this)",
+        value:"-",
         defaultValue: "() => { }"
     },
+    // 这个focus事件，会在失去焦点的时候触发一次
     {
-        attribute: "appendClick",
-        desc: "后置文字点击事件",
+        attribute: "focus",
+        desc: "获取焦点事件",
         dataType: "function",
-        params: "无",
+        params: "(date,this)",
+        value:"-",
         defaultValue: "() => { }"
-    }
+    },
+    // 这个函数触发有点问题 foucus时会触发 没什么意义
+    // {
+    //     attribute: "click",
+    //     desc: "",
+    //     dataType: "function",
+    //     params: "",
+    //     value:"-",
+    //     defaultValue: "() => { }"
+    // }
 ];
 
 let anchorSource = [
@@ -148,11 +195,11 @@ let anchorSource = [
 ];
 
 export let DateData = {
-    title:titleSource,
-    subTitle:subTitleSource,
-    effectDesc:effectDescSource,
+    title: titleSource,
+    subTitle: subTitleSource,
+    effectDesc: effectDescSource,
     attributes: attributesList,
     events: eventsList,
     anchor: anchorSource,
-    scene:sceneSource
+    scene: sceneSource
 };

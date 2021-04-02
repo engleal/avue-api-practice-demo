@@ -14,75 +14,19 @@ let sceneSource = {
 
 let attributesList = [
     {
-        attribute: "value",
-        desc: "输入框内容",
-        dataType: "string",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "maxlength",
-        desc: "最大输入长度",
+        attribute: "max",
+        desc: "最大分值",
         dataType: "number",
         params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "minlength",
-        desc: "最小输入长度",
-        dataType: "number",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "showPassword",
-        desc: "是否显示切换密码图标",
-        dataType: "boolean",
-        params: "-",
-        defaultValue: "true"
-    },
-    {
-        attribute: "showWordLimit",
-        desc:
-            '是否显示输入字数统计，只在 type = "text" 或 type = "textarea" 时有效',
-        dataType: "boolean",
-        params: "-",
-        defaultValue: "false"
-    },
-    {
-        attribute: "prefixIcon",
-        desc: "输入框头部图标",
-        dataType: "string(element-icon) | slot(name=prefix)",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "suffixIcon",
-        desc: "输入框尾部图标",
-        dataType: "string(element-icon) | slot(name=suffix)",
-        params: "-",
-        defaultValue: "-"
+        value:"-",
+        defaultValue: "5"
     },
     {
         attribute: "readonly",
         desc: "是否只读",
         dataType: "boolean",
         params: "-",
-        defaultValue: "false"
-    },
-    {
-        attribute: "placeholder",
-        desc: "输入框占位文本",
-        dataType: "string",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "autosize",
-        desc:
-            '自适应内容高度，只对 type="textarea" 有效，可传入对象，如，{ minRows: 2, maxRows: 6 }',
-        dataType: "boolean | object",
-        params: "-",
+        value: "true/false",
         defaultValue: "false"
     },
     {
@@ -90,46 +34,60 @@ let attributesList = [
         desc: "是否禁用",
         dataType: "boolean",
         params: "-",
+        value: "true/false",
         defaultValue: "false"
     },
     {
-        attribute: "autocomplete",
-        desc: "自动补全(on | off)",
-        dataType: "string",
+        attribute: "texts",
+        desc: "辅助文字数组，数组的长度等于max属性的值",
+        dataType: "array",
         params: "-",
-        defaultValue: "off"
+        value:"-",
+        defaultValue: "['极差', '失望', '一般', '满意', '惊喜']"
     },
     {
-        attribute: "prepend",
-        desc: "前置文字(只接受文字Avue源码定死了)",
-        dataType: "string",
+        attribute: "showText",
+        desc: "是否显示辅助文字",
+        dataType: "boolean",
         params: "-",
-        defaultValue: "-"
+        value:"true/false",
+        defaultValue: "false"
     },
     {
-        attribute: "append",
-        desc: "后置文字(只接受文字Avue源码定死了)",
+        attribute: "colors(array)",
+        desc: "icon 的颜色。若传入数组，共有 3 个元素，为 3 个分段所对应的颜色",
+        dataType: "array",
+        params: "-",
+        value:"-",
+        defaultValue: "['#F7BA2A', '#F7BA2A', '#F7BA2A']"
+    },
+    {
+        attribute: "iconClasses",
+        desc: "icon 的类名。若传入数组，共有 3 个元素，为 3 个分段所对应的类名.",
+        dataType: "array",
+        params: "-",
+        value:"-",
+        defaultValue: "['el-icon-star-on', 'el-icon-star-on','el-icon-star-on']"
+    },
+    {
+        attribute: "voidIconClass",
+        desc: "未选中 icon 的类名",
         dataType: "string",
         params: "-",
-        defaultValue: "-"
-    }
+        value:"-",
+        defaultValue: "el-icon-star-off"
+    },
 ];
 
 let eventsList = [
     {
-        attribute: "prependClick",
-        desc: "前置文字点击事件",
+        attribute: "change",
+        desc: "rate组件的分值发生改变时触发",
         dataType: "function",
-        params: "无",
-        defaultValue: "() => { }"
+        params: "1、value：rate的分值",
+        value:"",
+        defaultValue: "(value) => { }"
     },
-    {
-        attribute: "appendClick",
-        desc: "后置文字点击事件",
-        dataType: "function",
-        params: "无",
-        defaultValue: "() => { }"
-    }
 ];
 
 let anchorSource = [

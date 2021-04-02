@@ -3,7 +3,7 @@
     <rc-header></rc-header>
     <div class="app-body">
       <div class="nav-container">
-        <rc-nav :dataSource="navSource" :defaultSelected="defaultSelected"></rc-nav>
+        <rc-nav :dataSource="navSource" :defaultSelected="selected"></rc-nav>
       </div>
       <div class="app-content">
         <router-view/>
@@ -13,14 +13,19 @@
 </template>
 
 <script>
-import { navList } from "@/router/router"
+import { navList } from "@/router/router";
+import { location } from "@/assets/utils/location"
 export default {
   name: "App",
   data: function() {
     return {
       navSource: navList,
-      defaultSelected: "cascader"
     };
+  },
+  computed:{
+    selected(){
+      return location.hash();
+    }
   }
 };
 </script>

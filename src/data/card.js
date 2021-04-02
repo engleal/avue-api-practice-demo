@@ -14,122 +14,88 @@ let sceneSource = {
 
 let attributesList = [
     {
-        attribute: "value",
-        desc: "输入框内容",
-        dataType: "string",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "maxlength",
-        desc: "最大输入长度",
+        attribute: "gutter",
+        desc: "设置每个row项的左右margin",
         dataType: "number",
         params: "-",
-        defaultValue: "-"
+        value: "-",
+        defaultValue: "20"
     },
     {
-        attribute: "minlength",
-        desc: "最小输入长度",
+        attribute: "span",
+        desc: "设置每个col项的span值",
         dataType: "number",
         params: "-",
-        defaultValue: "-"
+        value: "-",
+        defaultValue: "8"
     },
     {
-        attribute: "showPassword",
-        desc: "是否显示切换密码图标",
-        dataType: "boolean",
+        attribute: "props",
+        desc: "data数据的相关对象的key配置的对象",
+        dataType: "object",
         params: "-",
-        defaultValue: "true"
+        value: `{
+            img: "img",
+            title: "title",
+            info: "info"
+          }`,
+        defaultValue: `{
+            img: "img",
+            title: "title",
+            info: "info"
+          }`
     },
     {
-        attribute: "showWordLimit",
-        desc:
-            '是否显示输入字数统计，只在 type = "text" 或 type = "textarea" 时有效',
-        dataType: "boolean",
+        attribute: "data",
+        desc: "卡片的数据，注意data属性的value项中的对象的key可用通过props进行指定",
+        dataType: "object",
         params: "-",
-        defaultValue: "false"
+        value: `[
+            {
+                img:'xx',
+                title:'xx',
+                info:'xx'
+            }
+        ]`,
+        defaultValue: "[]"
     },
     {
-        attribute: "prefixIcon",
-        desc: "输入框头部图标",
-        dataType: "string(element-icon) | slot(name=prefix)",
+        attribute: "option",
+        desc: "配置是否显示无数据的添加按钮",
+        dataType: "object",
         params: "-",
-        defaultValue: "-"
+        value: `{
+            addBtn：true
+        }`,
+        defaultValue: "{}" 
     },
     {
-        attribute: "suffixIcon",
-        desc: "输入框尾部图标",
-        dataType: "string(element-icon) | slot(name=suffix)",
+        attribute: "slot(menu)",
+        desc: "在card的标闭合标签中指定slot的值为name，将可以显示一个底部的显示区域，还可以拿到row和index值",
+        dataType: "html",
         params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "readonly",
-        desc: "是否只读",
-        dataType: "boolean",
-        params: "-",
-        defaultValue: "false"
-    },
-    {
-        attribute: "placeholder",
-        desc: "输入框占位文本",
-        dataType: "string",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "autosize",
-        desc:
-            '自适应内容高度，只对 type="textarea" 有效，可传入对象，如，{ minRows: 2, maxRows: 6 }',
-        dataType: "boolean | object",
-        params: "-",
-        defaultValue: "false"
-    },
-    {
-        attribute: "disabled",
-        desc: "是否禁用",
-        dataType: "boolean",
-        params: "-",
-        defaultValue: "false"
-    },
-    {
-        attribute: "autocomplete",
-        desc: "自动补全(on | off)",
-        dataType: "string",
-        params: "-",
-        defaultValue: "off"
-    },
-    {
-        attribute: "prepend",
-        desc: "前置文字(只接受文字Avue源码定死了)",
-        dataType: "string",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "append",
-        desc: "后置文字(只接受文字Avue源码定死了)",
-        dataType: "string",
-        params: "-",
-        defaultValue: "-"
+        value: `-`,
+        defaultValue: "-" 
     }
 ];
 
 let eventsList = [
     {
-        attribute: "prependClick",
-        desc: "前置文字点击事件",
+        attribute: "row-add",
+        desc: "空card添加数据的触发函数",
         dataType: "function",
-        params: "无",
+        params: "-",
+        value:"-",
         defaultValue: "() => { }"
     },
     {
-        attribute: "appendClick",
-        desc: "后置文字点击事件",
+        attribute: "row-click",
+        desc: "card的点击函数",
         dataType: "function",
-        params: "无",
-        defaultValue: "() => { }"
-    }
+        params: "-",
+        value:"1、row：data的每一条数据 2、index：这是第几条数据",
+        defaultValue: "(row,index) => { }"
+    },
 ];
 
 let anchorSource = [

@@ -7,128 +7,103 @@ let effectDescSource = "";
 let sceneSource = {
     title: "何时使用",
     desc: "",
-    features: [
-        ""
-    ]
+    features: [""]
 };
 
 let attributesList = [
     {
-        attribute: "value",
-        desc: "输入框内容",
+        attribute: "dic",
+        desc: "数据源",
+        dataType: "array",
+        params: "-",
+        value: `array=[{
+            // switch关闭状态
+            {
+                lable:"",
+                value:""
+            },
+            // switch开启状态
+            {
+                lable:"",
+                value:""
+            },
+        }]`,
+        defaultValue: "-"
+    },
+    {
+        attribute: "activeIconClass",
+        desc: "switch打开时所显示图标的类名,设置这个值将导致dic的第二个对象属性失效",
         dataType: "string",
         params: "-",
+        value: "-",
         defaultValue: "-"
     },
     {
-        attribute: "maxlength",
-        desc: "最大输入长度",
-        dataType: "number",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "minlength",
-        desc: "最小输入长度",
-        dataType: "number",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "showPassword",
-        desc: "是否显示切换密码图标",
-        dataType: "boolean",
-        params: "-",
-        defaultValue: "true"
-    },
-    {
-        attribute: "showWordLimit",
-        desc:
-            '是否显示输入字数统计，只在 type = "text" 或 type = "textarea" 时有效',
-        dataType: "boolean",
-        params: "-",
-        defaultValue: "false"
-    },
-    {
-        attribute: "prefixIcon",
-        desc: "输入框头部图标",
-        dataType: "string(element-icon) | slot(name=prefix)",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "suffixIcon",
-        desc: "输入框尾部图标",
-        dataType: "string(element-icon) | slot(name=suffix)",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "readonly",
-        desc: "是否只读",
-        dataType: "boolean",
-        params: "-",
-        defaultValue: "false"
-    },
-    {
-        attribute: "placeholder",
-        desc: "输入框占位文本",
+        attribute: "inactiveIconClass",
+        desc: "switch关闭时所显示图标的类名,设置这个值将导致dic的第一个对象属性失效",
         dataType: "string",
         params: "-",
+        value: "-",
         defaultValue: "-"
     },
     {
-        attribute: "autosize",
-        desc:
-            '自适应内容高度，只对 type="textarea" 有效，可传入对象，如，{ minRows: 2, maxRows: 6 }',
-        dataType: "boolean | object",
+        attribute: "activeColor",
+        desc: "switch打开时的背景色",
+        dataType: "string",
         params: "-",
-        defaultValue: "false"
+        value: "-",
+        defaultValue: "#409EFF"
+    },
+    {
+        attribute: "inactiveColor",
+        desc: "switch关闭时的背景色",
+        dataType: "string",
+        params: "-",
+        value: "-",
+        defaultValue: "#C0CCDA"
+    },
+    {
+        attribute: "len",
+        desc: "switch 的宽度（像素）",
+        dataType: "number",
+        params: "-",
+        value: "-",
+        defaultValue: "40"
     },
     {
         attribute: "disabled",
         desc: "是否禁用",
         dataType: "boolean",
         params: "-",
+        value: "true/false",
         defaultValue: "false"
     },
     {
-        attribute: "autocomplete",
-        desc: "自动补全(on | off)",
-        dataType: "string",
+        attribute: "readonly",
+        desc: "是否只读",
+        dataType: "boolean",
         params: "-",
-        defaultValue: "off"
+        value: "true/false",
+        defaultValue: "false"
     },
     {
-        attribute: "prepend",
-        desc: "前置文字(只接受文字Avue源码定死了)",
+        attribute: "size",
+        desc: "输入框尺寸",
         dataType: "string",
         params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "append",
-        desc: "后置文字(只接受文字Avue源码定死了)",
-        dataType: "string",
-        params: "-",
+        value: "large|small|mini",
         defaultValue: "-"
     }
 ];
 
 let eventsList = [
     {
-        attribute: "prependClick",
-        desc: "前置文字点击事件",
+        attribute: "change",
+        desc: "switch切换触发的事件",
         dataType: "function",
-        params: "无",
-        defaultValue: "() => { }"
-    },
-    {
-        attribute: "appendClick",
-        desc: "后置文字点击事件",
-        dataType: "function",
-        params: "无",
-        defaultValue: "() => { }"
+        params: "1、value：切换时候的值",
+        value:"",
+        defaultValue: "(value) => { }"
     }
 ];
 
@@ -148,11 +123,11 @@ let anchorSource = [
 ];
 
 export let SwitchData = {
-    title:titleSource,
-    subTitle:subTitleSource,
-    effectDesc:effectDescSource,
+    title: titleSource,
+    subTitle: subTitleSource,
+    effectDesc: effectDescSource,
     attributes: attributesList,
     events: eventsList,
     anchor: anchorSource,
-    scene:sceneSource
+    scene: sceneSource
 };

@@ -14,122 +14,63 @@ let sceneSource = {
 
 let attributesList = [
     {
-        attribute: "value",
-        desc: "输入框内容",
+        attribute: "size",
+        desc: "输入框尺寸",
         dataType: "string",
         params: "-",
+        value: "large|small|mini",
         defaultValue: "-"
-    },
-    {
-        attribute: "maxlength",
-        desc: "最大输入长度",
-        dataType: "number",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "minlength",
-        desc: "最小输入长度",
-        dataType: "number",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "showPassword",
-        desc: "是否显示切换密码图标",
-        dataType: "boolean",
-        params: "-",
-        defaultValue: "true"
-    },
-    {
-        attribute: "showWordLimit",
-        desc:
-            '是否显示输入字数统计，只在 type = "text" 或 type = "textarea" 时有效',
-        dataType: "boolean",
-        params: "-",
-        defaultValue: "false"
-    },
-    {
-        attribute: "prefixIcon",
-        desc: "输入框头部图标",
-        dataType: "string(element-icon) | slot(name=prefix)",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "suffixIcon",
-        desc: "输入框尾部图标",
-        dataType: "string(element-icon) | slot(name=suffix)",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "readonly",
-        desc: "是否只读",
-        dataType: "boolean",
-        params: "-",
-        defaultValue: "false"
-    },
-    {
-        attribute: "placeholder",
-        desc: "输入框占位文本",
-        dataType: "string",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "autosize",
-        desc:
-            '自适应内容高度，只对 type="textarea" 有效，可传入对象，如，{ minRows: 2, maxRows: 6 }',
-        dataType: "boolean | object",
-        params: "-",
-        defaultValue: "false"
     },
     {
         attribute: "disabled",
         desc: "是否禁用",
         dataType: "boolean",
         params: "-",
+        value: "true/false",
         defaultValue: "false"
     },
     {
-        attribute: "autocomplete",
-        desc: "自动补全(on | off)",
-        dataType: "string",
-        params: "-",
-        defaultValue: "off"
+        attribute: "dic",
+        desc: "数据源",
+        dataType: "array",
+        params: ``,
+        value:`array=[{
+            // 后台的数据值
+            value:"",
+            // 要禁用的数据项的
+            disabled:true,
+            // 显示的值
+            label:""
+        }]`,
+        efaultValue: "[]"
     },
     {
-        attribute: "prepend",
-        desc: "前置文字(只接受文字Avue源码定死了)",
-        dataType: "string",
+        attribute: "border",
+        desc: "是否显示边框",
+        dataType: "boolean",
         params: "-",
-        defaultValue: "-"
+        defaultValue: "false"
     },
     {
-        attribute: "append",
-        desc: "后置文字(只接受文字Avue源码定死了)",
-        dataType: "string",
+        attribute: "readonly",
+        desc: "是否只读",
+        dataType: "boolean",
         params: "-",
-        defaultValue: "-"
+        value: "true/false",
+        defaultValue: "false"
     }
 ];
 
 let eventsList = [
     {
-        attribute: "prependClick",
-        desc: "前置文字点击事件",
+        attribute: "change",
+        desc: "选中数据时触发",
         dataType: "function",
-        params: "无",
-        defaultValue: "() => { }"
+        params: `1、value：dic数据源中对应数据的valueKey字段的值
+        2、event：事件对象`,
+        value:"",
+        defaultValue: "(value,event) => { }"
     },
-    {
-        attribute: "appendClick",
-        desc: "后置文字点击事件",
-        dataType: "function",
-        params: "无",
-        defaultValue: "() => { }"
-    }
 ];
 
 let anchorSource = [

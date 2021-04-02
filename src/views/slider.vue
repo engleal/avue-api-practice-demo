@@ -1,31 +1,32 @@
 <template>
- <div class="page-container">
-   <rc-basic-content>
-     <template slot="content">
-       <rc-markdown
-         :title="title"
-         :subTitle="subTitle"
-         :effectDesc="effectDesc"
-         :scene="scene"
-       ></rc-markdown>
-       <rc-code-card title="基本用法" desc="基本使用。" id="JCYF">
-         <template slot="effect">
-            
-         </template>
-         <div slot="source-code">
-           <pre>
+  <div class="page-container">
+    <rc-basic-content>
+      <template slot="content">
+        <rc-markdown :title="title" :subTitle="subTitle" :effectDesc="effectDesc" :scene="scene"></rc-markdown>
+        <rc-code-card title="基本用法" desc="基本使用。" id="JCYF">
+          <template slot="effect">
+            <avue-slider
+              v-model="value"
+              :max="100"
+              :min="20"
+              @change="handleChange"
+              @input="handleInput"
+            ></avue-slider>
+          </template>
+          <div slot="source-code">
+            <pre>
               <code class="language-xml line-numbers">{{codeSnippet}}</code>
            </pre>
-         </div>
-       </rc-code-card>
-       <rc-table title="API 属性" id="ATTRIBUTES" :dataSource="attributesSource"></rc-table>
-       <rc-table title="API 事件" id="EVENTS" :dataSource="eventSource"></rc-table>
-     </template>
-     <template slot="anchor">
-       <rc-time-line :dataSource="anchorSource"></rc-time-line>
-     </template>
-   </rc-basic-content>
- </div>
+          </div>
+        </rc-code-card>
+        <rc-table title="API 属性" id="ATTRIBUTES" :dataSource="attributesSource"></rc-table>
+        <rc-table title="API 事件" id="EVENTS" :dataSource="eventSource"></rc-table>
+      </template>
+      <template slot="anchor">
+        <rc-time-line :dataSource="anchorSource"></rc-time-line>
+      </template>
+    </rc-basic-content>
+  </div>
 </template>
 <script>
 import Prism from "prismjs";
@@ -34,15 +35,15 @@ export default {
   name: "Slider",
   data() {
     return {
-        title: ComponentSource.slider.title,
-        subTitle: ComponentSource.slider.subTitle,
-        effectDesc: ComponentSource.slider.effectDesc,
-        scene: ComponentSource.slider.scene,
-        anchorSource: ComponentSource.slider.anchor,
-        codeSnippet: "",
-        aVueValue: "我是内容",
-        attributesSource: ComponentSource.slider.attributes,
-        eventSource: ComponentSource.slider.events
+      title: ComponentSource.slider.title,
+      subTitle: ComponentSource.slider.subTitle,
+      effectDesc: ComponentSource.slider.effectDesc,
+      scene: ComponentSource.slider.scene,
+      anchorSource: ComponentSource.slider.anchor,
+      attributesSource: ComponentSource.slider.attributes,
+      eventSource: ComponentSource.slider.events,
+      codeSnippet: "",
+      value: 52
     };
   },
   // 实例创建前 无el 无data
@@ -58,11 +59,20 @@ export default {
   // 数据更新完成
   updated() {},
   // 实例销毁前
-  beforeDestroy(){},
+  beforeDestroy() {},
   // 实例销毁后
-  destroyed(){},
+  destroyed() {},
   // 方法合集
-  methods: {},
+  methods: {
+    handleChange(v1, v2) {
+      console.log("change-v1", v1);
+      console.log("change-v2", v2);
+    },
+    handleInput(v1, v2) {
+      console.log("input-v1", v1);
+      console.log("input-v2", v2);
+    }
+  },
   // 计算属性 一个数据受多个数据影响
   computed: {},
   // 监听属性 一个数据影响多个数据

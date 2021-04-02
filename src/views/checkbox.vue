@@ -10,7 +10,7 @@
        ></rc-markdown>
        <rc-code-card title="基本用法" desc="基本使用。" id="JCYF">
          <template slot="effect">
-            
+            <avue-checkbox :all="true" v-model="aVueValue" placeholder="请选择内容" :dic="dic"></avue-checkbox>
          </template>
          <div slot="source-code">
            <pre>
@@ -30,6 +30,7 @@
 <script>
 import Prism from "prismjs";
 import ComponentSource from "./index";
+console.log("AVUE",this.$AVUE)
 export default {
   name: "Checkbox",
   data() {
@@ -39,10 +40,17 @@ export default {
         effectDesc: ComponentSource.checkbox.effectDesc,
         scene: ComponentSource.checkbox.scene,
         anchorSource: ComponentSource.checkbox.anchor,
-        codeSnippet: "",
-        aVueValue: "我是内容",
+        codeSnippet: `<avue-checkbox v-model="form" placeholder="请选择内容" :dic="dic"></avue-checkbox>`,
         attributesSource: ComponentSource.checkbox.attributes,
-        eventSource: ComponentSource.checkbox.events
+        eventSource: ComponentSource.checkbox.events,
+        aVueValue: [],
+        dic:[{
+          label:'选项1',
+          value:0
+        },{
+          label:'选项2',
+          value:1
+        }]
     };
   },
   // 实例创建前 无el 无data

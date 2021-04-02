@@ -1,31 +1,31 @@
 <template>
- <div class="page-container">
-   <rc-basic-content>
-     <template slot="content">
-       <rc-markdown
-         :title="title"
-         :subTitle="subTitle"
-         :effectDesc="effectDesc"
-         :scene="scene"
-       ></rc-markdown>
-       <rc-code-card title="基本用法" desc="基本使用。" id="JCYF">
-         <template slot="effect">
-            
-         </template>
-         <div slot="source-code">
-           <pre>
+  <div class="page-container">
+    <rc-basic-content>
+      <template slot="content">
+        <rc-markdown :title="title" :subTitle="subTitle" :effectDesc="effectDesc" :scene="scene"></rc-markdown>
+        <rc-code-card title="基本用法" desc="基本使用。" id="JCYF">
+          <template slot="effect">
+            <avue-avatar icon="el-icon-circle-plus-outline"></avue-avatar>
+            <avue-avatar>U</avue-avatar>
+            <avue-avatar>USER</avue-avatar>
+            <avue-avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></avue-avatar>
+            <avue-avatar style="color: #f56a00; background-color: #fde3cf">U</avue-avatar>
+            <avue-avatar style="background-color:#87d068" icon="el-icon-circle-plus-outline"></avue-avatar>
+          </template>
+          <div slot="source-code">
+            <pre>
               <code class="language-xml line-numbers">{{codeSnippet}}</code>
            </pre>
-         </div>
-       </rc-code-card>
-       <rc-table title="API 属性" id="ATTRIBUTES" :dataSource="attributesSource"></rc-table>
-       <rc-table title="API 事件" id="EVENTS" :dataSource="eventSource"></rc-table>
-     </template>
-     <template slot="anchor">
-       <rc-time-line :dataSource="anchorSource"></rc-time-line>
-     </template>
-   </rc-basic-content>
- </div>
+          </div>
+        </rc-code-card>
+        <rc-table title="API 属性" id="ATTRIBUTES" :dataSource="attributesSource"></rc-table>
+        <rc-table title="API 事件" id="EVENTS" :dataSource="eventSource"></rc-table>
+      </template>
+      <template slot="anchor">
+        <rc-time-line :dataSource="anchorSource"></rc-time-line>
+      </template>
+    </rc-basic-content>
+  </div>
 </template>
 <script>
 import Prism from "prismjs";
@@ -34,15 +34,14 @@ export default {
   name: "Avatar",
   data() {
     return {
-        title: ComponentSource.avatar.title,
-        subTitle: ComponentSource.avatar.subTitle,
-        effectDesc: ComponentSource.avatar.effectDesc,
-        scene: ComponentSource.avatar.scene,
-        anchorSource: ComponentSource.avatar.anchor,
-        codeSnippet: "",
-        aVueValue: "我是内容",
-        attributesSource: ComponentSource.avatar.attributes,
-        eventSource: ComponentSource.avatar.events
+      title: ComponentSource.avatar.title,
+      subTitle: ComponentSource.avatar.subTitle,
+      effectDesc: ComponentSource.avatar.effectDesc,
+      scene: ComponentSource.avatar.scene,
+      anchorSource: ComponentSource.avatar.anchor,
+      codeSnippet: "",
+      attributesSource: ComponentSource.avatar.attributes,
+      eventSource: ComponentSource.avatar.events
     };
   },
   // 实例创建前 无el 无data
@@ -58,9 +57,9 @@ export default {
   // 数据更新完成
   updated() {},
   // 实例销毁前
-  beforeDestroy(){},
+  beforeDestroy() {},
   // 实例销毁后
-  destroyed(){},
+  destroyed() {},
   // 方法合集
   methods: {},
   // 计算属性 一个数据受多个数据影响

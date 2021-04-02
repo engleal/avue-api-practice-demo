@@ -10,7 +10,7 @@
        ></rc-markdown>
        <rc-code-card title="基本用法" desc="基本使用。" id="JCYF">
          <template slot="effect">
-            
+            <avue-crud :data="data" :option="option"></avue-crud>
          </template>
          <div slot="source-code">
            <pre>
@@ -39,10 +39,55 @@ export default {
         effectDesc: ComponentSource.table.effectDesc,
         scene: ComponentSource.table.scene,
         anchorSource: ComponentSource.table.anchor,
-        codeSnippet: "",
-        aVueValue: "我是内容",
         attributesSource: ComponentSource.table.attributes,
-        eventSource: ComponentSource.table.events
+        eventSource: ComponentSource.table.events,
+        codeSnippet: `<avue-crud :data="data" :option="option"></avue-crud>`,
+        data: [
+          {
+            name:'张三',
+            sex:'男',
+            date:'1994-02-23 00:00:00'
+          }, {
+            name:'李四',
+            sex:'女',
+            date:'1994-02-23 00:00:00'
+          }, {
+            name:'王五',
+            sex:'女',
+            date:'1994-02-23 00:00:00'
+          }, {
+            name:'赵六',
+            sex:'男',
+            date:'1994-02-23 00:00:00'
+          }
+        ],
+        option:{
+          title:'表格的标题',
+          titleSize:'h3',
+          titleStyle:{
+            color:'red'
+          },
+          card:"always",
+          page:false,
+          align:'center',
+          menuAlign:'center',
+          column:[
+             {
+              label:'姓名',
+              prop:'name'
+            },
+            {
+              label:'性别',
+              prop:'sex'
+            },{
+              label: "日期",
+              prop: "date",
+              type: "date",
+              format: "yyyy-MM-dd hh:mm:ss",
+              valueFormat: "yyyy-MM-dd hh:mm:ss",
+            }
+          ]
+        }
     };
   },
   // 实例创建前 无el 无data

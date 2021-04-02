@@ -88,7 +88,7 @@ export default {
 }
 .effect-area .effect-show {
   padding: 42px 24px 50px;
-  border-top: 1px dashed #ececec;
+  border-top: 1px solid #ececec;
 }
 .effect-area .code-explain {
   position: relative;

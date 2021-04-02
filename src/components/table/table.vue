@@ -1,5 +1,5 @@
 <template>
-  <div class="table-wrapper" :id="id">
+  <div v-if="dataSource.length" class="table-wrapper" :id="id">
     <h2 class="title">{{title}}</h2>
     <div class="table-body-wrapper">
       <table class="rc-table" v-if="dataSource.length">
@@ -78,7 +78,8 @@ export default {
 .rc-table thead th,
 .rc-table tbody td {
   padding: 16px;
-  min-width: 100px;
+  min-width: 120px;
+  max-width: 400px;
   overflow-wrap: break-word;
 }
 .rc-table thead th {

@@ -14,121 +14,79 @@ let sceneSource = {
 
 let attributesList = [
     {
-        attribute: "value",
-        desc: "输入框内容",
-        dataType: "string",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "maxlength",
-        desc: "最大输入长度",
-        dataType: "number",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "minlength",
-        desc: "最小输入长度",
-        dataType: "number",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "showPassword",
-        desc: "是否显示切换密码图标",
-        dataType: "boolean",
-        params: "-",
-        defaultValue: "true"
-    },
-    {
-        attribute: "showWordLimit",
-        desc:
-            '是否显示输入字数统计，只在 type = "text" 或 type = "textarea" 时有效',
-        dataType: "boolean",
-        params: "-",
-        defaultValue: "false"
-    },
-    {
-        attribute: "prefixIcon",
-        desc: "输入框头部图标",
-        dataType: "string(element-icon) | slot(name=prefix)",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "suffixIcon",
-        desc: "输入框尾部图标",
-        dataType: "string(element-icon) | slot(name=suffix)",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "readonly",
-        desc: "是否只读",
-        dataType: "boolean",
-        params: "-",
-        defaultValue: "false"
-    },
-    {
-        attribute: "placeholder",
-        desc: "输入框占位文本",
-        dataType: "string",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "autosize",
-        desc:
-            '自适应内容高度，只对 type="textarea" 有效，可传入对象，如，{ minRows: 2, maxRows: 6 }',
-        dataType: "boolean | object",
-        params: "-",
-        defaultValue: "false"
-    },
-    {
         attribute: "disabled",
         desc: "是否禁用",
         dataType: "boolean",
         params: "-",
+        value: "true/false",
         defaultValue: "false"
     },
     {
-        attribute: "autocomplete",
-        desc: "自动补全(on | off)",
-        dataType: "string",
+        attribute: "step",
+        desc: "步长",
+        dataType: "number",
         params: "-",
-        defaultValue: "off"
+        value: "-",
+        defaultValue: "1"
     },
     {
-        attribute: "prepend",
-        desc: "前置文字(只接受文字Avue源码定死了)",
-        dataType: "string",
+        attribute: "min",
+        desc: "最小值",
+        dataType: "number",
         params: "-",
-        defaultValue: "-"
+        value: "-",
+        defaultValue: "0"
     },
     {
-        attribute: "append",
-        desc: "后置文字(只接受文字Avue源码定死了)",
-        dataType: "string",
+        attribute: "max",
+        desc: "最大值",
+        dataType: "number",
         params: "-",
-        defaultValue: "-"
-    }
+        value: "-",
+        defaultValue: "100"
+    },
+    {
+        attribute: "range",
+        desc: "是否开启范围选择,起点和终点都可以自由选择，注意此时v-model绑定的值将是一个数组",
+        dataType: "boolean",
+        params: "-",
+        value: "true/false",
+        defaultValue: "false"
+    },
+    {
+        attribute: "showStops",
+        desc: "是否显示断点，设置断点必须有step属性的存在，以step的值作为断点",
+        dataType: "boolean",
+        params: "-",
+        value: "true/false",
+        defaultValue: "false"
+    },
+    {
+        attribute: "showInput",
+        desc: "是否在slider的右边显示一个输入框",
+        dataType: "boolean",
+        params: "-",
+        value: "true/false",
+        defaultValue: "false"
+    },
+    {
+        attribute: "formatTooltip",
+        desc: "格式化tooltip的显示值",
+        dataType: "function",
+        params: "1、value：要格式化的值",
+        value: "-",
+        defaultValue: "(value)=> value"
+    },
 ];
 
 let eventsList = [
     {
-        attribute: "prependClick",
-        desc: "前置文字点击事件",
+        attribute: "change",
+        desc: "v-model的值发生改变就会触发",
         dataType: "function",
-        params: "无",
-        defaultValue: "() => { }"
-    },
-    {
-        attribute: "appendClick",
-        desc: "后置文字点击事件",
-        dataType: "function",
-        params: "无",
-        defaultValue: "() => { }"
+        params: "1、value：slider的值",
+        value:"",
+        defaultValue: "(value) => { }"
     }
 ];
 

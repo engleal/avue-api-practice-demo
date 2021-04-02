@@ -1,31 +1,26 @@
 <template>
- <div class="page-container">
-   <rc-basic-content>
-     <template slot="content">
-       <rc-markdown
-         :title="title"
-         :subTitle="subTitle"
-         :effectDesc="effectDesc"
-         :scene="scene"
-       ></rc-markdown>
-       <rc-code-card title="基本用法" desc="基本使用。" id="JCYF">
-         <template slot="effect">
-            
-         </template>
-         <div slot="source-code">
-           <pre>
+  <div class="page-container">
+    <rc-basic-content>
+      <template slot="content">
+        <rc-markdown :title="title" :subTitle="subTitle" :effectDesc="effectDesc" :scene="scene"></rc-markdown>
+        <rc-code-card title="基本用法" desc="基本使用。" id="JCYF">
+          <template slot="effect">
+            <avue-login :option="option" @submit="submit"></avue-login>
+          </template>
+          <div slot="source-code">
+            <pre>
               <code class="language-xml line-numbers">{{codeSnippet}}</code>
            </pre>
-         </div>
-       </rc-code-card>
-       <rc-table title="API 属性" id="ATTRIBUTES" :dataSource="attributesSource"></rc-table>
-       <rc-table title="API 事件" id="EVENTS" :dataSource="eventSource"></rc-table>
-     </template>
-     <template slot="anchor">
-       <rc-time-line :dataSource="anchorSource"></rc-time-line>
-     </template>
-   </rc-basic-content>
- </div>
+          </div>
+        </rc-code-card>
+        <rc-table title="API 属性" id="ATTRIBUTES" :dataSource="attributesSource"></rc-table>
+        <rc-table title="API 事件" id="EVENTS" :dataSource="eventSource"></rc-table>
+      </template>
+      <template slot="anchor">
+        <rc-time-line :dataSource="anchorSource"></rc-time-line>
+      </template>
+    </rc-basic-content>
+  </div>
 </template>
 <script>
 import Prism from "prismjs";
@@ -34,15 +29,40 @@ export default {
   name: "Login",
   data() {
     return {
-        title: ComponentSource.login.title,
-        subTitle: ComponentSource.login.subTitle,
-        effectDesc: ComponentSource.login.effectDesc,
-        scene: ComponentSource.login.scene,
-        anchorSource: ComponentSource.login.anchor,
-        codeSnippet: "",
-        aVueValue: "我是内容",
-        attributesSource: ComponentSource.login.attributes,
-        eventSource: ComponentSource.login.events
+      title: ComponentSource.login.title,
+      subTitle: ComponentSource.login.subTitle,
+      effectDesc: ComponentSource.login.effectDesc,
+      scene: ComponentSource.login.scene,
+      anchorSource: ComponentSource.login.anchor,
+      codeSnippet: "",
+      aVueValue: "我是内容",
+      attributesSource: ComponentSource.login.attributes,
+      eventSource: ComponentSource.login.events,
+      option: {
+        width: 400,
+        time: 60,
+        codeType: "phone", //phone为手机验证码/img为图片验证码
+        column: {
+          username: {
+            // hide: true,
+            label: "用户名",
+            // prop: 'user',
+            // placeholder:'',
+            autocomplete: "off",
+            rules: { required: true, message: "请输入用户名", trigger: "blur" }
+          },
+          password: {
+            label: "密码",
+            // prop: 'pass',
+            // placeholder:'',
+            autocomplete: "off",
+            rules: { required: true, message: "请输入密码", trigger: "blur" }
+          },
+          code: {
+            hide: true
+          }
+        }
+      }
     };
   },
   // 实例创建前 无el 无data
@@ -58,11 +78,16 @@ export default {
   // 数据更新完成
   updated() {},
   // 实例销毁前
-  beforeDestroy(){},
+  beforeDestroy() {},
   // 实例销毁后
-  destroyed(){},
+  destroyed() {},
   // 方法合集
-  methods: {},
+  methods: {
+    submit(form) {
+      this.$message.success(JSON.stringify(form));
+      console.log(form);
+    }
+  },
   // 计算属性 一个数据受多个数据影响
   computed: {},
   // 监听属性 一个数据影响多个数据

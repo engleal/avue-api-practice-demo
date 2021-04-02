@@ -7,129 +7,120 @@ let effectDescSource = "";
 let sceneSource = {
     title: "何时使用",
     desc: "",
-    features: [
-        ""
-    ]
+    features: [""]
 };
 
 let attributesList = [
     {
-        attribute: "value",
-        desc: "输入框内容",
-        dataType: "string",
+        attribute: "options",
+        desc: '数据源',
+        dataType: "array",
         params: "-",
+        value:`[{value: "",label: "",children:[]}]`,
         defaultValue: "-"
     },
     {
-        attribute: "maxlength",
-        desc: "最大输入长度",
-        dataType: "number",
+        attribute: "value / v-model",
+        desc: "选中项绑定的值",
+        dataType: "array",
         params: "-",
+        value:"-",
         defaultValue: "-"
-    },
-    {
-        attribute: "minlength",
-        desc: "最小输入长度",
-        dataType: "number",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "showPassword",
-        desc: "是否显示切换密码图标",
-        dataType: "boolean",
-        params: "-",
-        defaultValue: "true"
-    },
-    {
-        attribute: "showWordLimit",
-        desc:
-            '是否显示输入字数统计，只在 type = "text" 或 type = "textarea" 时有效',
-        dataType: "boolean",
-        params: "-",
-        defaultValue: "false"
-    },
-    {
-        attribute: "prefixIcon",
-        desc: "输入框头部图标",
-        dataType: "string(element-icon) | slot(name=prefix)",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "suffixIcon",
-        desc: "输入框尾部图标",
-        dataType: "string(element-icon) | slot(name=suffix)",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "readonly",
-        desc: "是否只读",
-        dataType: "boolean",
-        params: "-",
-        defaultValue: "false"
     },
     {
         attribute: "placeholder",
-        desc: "输入框占位文本",
+        desc:
+            "输入框占位文本(element的默认值为请选择，avue的默认值为空，所以必须手动指定不然就是空)",
         dataType: "string",
         params: "-",
+        value:"-",
+        defaultValue: ""
+    },
+    {
+        attribute: "size",
+        desc: "尺寸",
+        dataType: "string",
+        params: "-",
+        value:"medium/small/mini",
         defaultValue: "-"
     },
     {
-        attribute: "autosize",
+        attribute: "emitPath",
         desc:
-            '自适应内容高度，只对 type="textarea" 有效，可传入对象，如，{ minRows: 2, maxRows: 6 }',
-        dataType: "boolean | object",
+            "在选中节点改变时，是否返回由该节点所在的各级菜单的值所组成的数组，若设置 false，则只返回该节点的值",
+        dataType: "boolean",
         params: "-",
+        value:"true/false",
+        defaultValue: "true"
+    },
+    {
+        attribute: "clearable",
+        desc: "是否显示清空的图标",
+        dataType: "boolean",
+        params: "-",
+        value:"true/false",
         defaultValue: "false"
+    },
+    {
+        attribute: "expandTrigger",
+        desc: "次级菜单的打开方式",
+        dataType: "string",
+        params: "-",
+        value:"hover/click",
+        defaultValue: "hover"
+    },
+    {
+        attribute: "showAllLevels",
+        desc: "是否显示完整的路径还是显示最后一级,默认完整显示",
+        dataType: "boolean",
+        params: "-",
+        value:"true/false",
+        defaultValue: "true"
+    },
+    {
+        attribute: "filterable",
+        desc: "是否打开搜索功能,默认打开",
+        dataType: "boolean",
+        params: "-",
+        value:"true/false",
+        defaultValue: "true"
+    },
+    {
+        attribute: "separator",
+        desc: "选项分隔符",
+        dataType: "string",
+        params: "-",
+        value:"",
+        defaultValue: "/"
     },
     {
         attribute: "disabled",
-        desc: "是否禁用",
+        desc: "是否禁用input，禁用clearable将为false，即使设置了值",
         dataType: "boolean",
         params: "-",
+        value:"true/false",
         defaultValue: "false"
     },
     {
-        attribute: "autocomplete",
-        desc: "自动补全(on | off)",
-        dataType: "string",
+        attribute: "tags",
+        desc: "多选模式有效，表示是否折叠多个选项只保留一个显示,默认不折叠",
+        dataType: "boolean",
         params: "-",
-        defaultValue: "off"
+        value:"true/false",
+        defaultValue: "false"
     },
     {
-        attribute: "prepend",
-        desc: "前置文字(只接受文字Avue源码定死了)",
-        dataType: "string",
+        attribute: "changeOnSelect",
+        desc: "取消父子节点的关联。多选模式下，能否只选择某个节点，而不是选择整个节点链，默认不断开",
+        dataType: "boolean",
         params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "append",
-        desc: "后置文字(只接受文字Avue源码定死了)",
-        dataType: "string",
-        params: "-",
-        defaultValue: "-"
+        value:"true/false",
+        defaultValue: "false"
     }
 ];
 
 let eventsList = [
-    {
-        attribute: "prependClick",
-        desc: "前置文字点击事件",
-        dataType: "function",
-        params: "无",
-        defaultValue: "() => { }"
-    },
-    {
-        attribute: "appendClick",
-        desc: "后置文字点击事件",
-        dataType: "function",
-        params: "无",
-        defaultValue: "() => { }"
-    }
+    
 ];
 
 let anchorSource = [
@@ -141,18 +132,18 @@ let anchorSource = [
         name: "API 属性",
         anchorPoint: "#ATTRIBUTES"
     },
-    {
-        name: "API 事件",
-        anchorPoint: "#EVENTS"
-    }
+    // {
+    //     name: "API 事件",
+    //     anchorPoint: "#EVENTS"
+    // }
 ];
 
 export let CascaderData = {
-    title:titleSource,
-    subTitle:subTitleSource,
-    effectDesc:effectDescSource,
+    title: titleSource,
+    subTitle: subTitleSource,
+    effectDesc: effectDescSource,
     attributes: attributesList,
     events: eventsList,
     anchor: anchorSource,
-    scene:sceneSource
+    scene: sceneSource
 };

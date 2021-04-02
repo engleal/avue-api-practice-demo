@@ -16,6 +16,10 @@ export let column = [
         dataIndex: "params"
     },
     {
+        name: "可选值",
+        dataIndex: "value"
+    },
+    {
         name: "默认值",
         dataIndex: "defaultValue"
     }

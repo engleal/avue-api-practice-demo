@@ -19,6 +19,7 @@ let attributesList = [
         desc: "输入框内容",
         dataType: "string",
         params: "-",
+        value:"",
         defaultValue: "-"
     },
     {
@@ -26,6 +27,7 @@ let attributesList = [
         desc: "最大输入长度",
         dataType: "number",
         params: "-",
+        value:"",
         defaultValue: "-"
     },
     {
@@ -33,6 +35,7 @@ let attributesList = [
         desc: "最小输入长度",
         dataType: "number",
         params: "-",
+        value:"",
         defaultValue: "-"
     },
     {
@@ -40,6 +43,7 @@ let attributesList = [
         desc: "是否显示切换密码图标",
         dataType: "boolean",
         params: "-",
+        value:"true/false",
         defaultValue: "true"
     },
     {
@@ -48,6 +52,7 @@ let attributesList = [
             '是否显示输入字数统计，只在 type = "text" 或 type = "textarea" 时有效',
         dataType: "boolean",
         params: "-",
+        value:"true/false",
         defaultValue: "false"
     },
     {
@@ -55,6 +60,7 @@ let attributesList = [
         desc: "输入框头部图标",
         dataType: "string(element-icon) | slot(name=prefix)",
         params: "-",
+        value:"-",
         defaultValue: "-"
     },
     {
@@ -62,6 +68,7 @@ let attributesList = [
         desc: "输入框尾部图标",
         dataType: "string(element-icon) | slot(name=suffix)",
         params: "-",
+        value:"-",
         defaultValue: "-"
     },
     {
@@ -69,6 +76,7 @@ let attributesList = [
         desc: "是否只读",
         dataType: "boolean",
         params: "-",
+        value:"true/false",
         defaultValue: "false"
     },
     {
@@ -76,6 +84,7 @@ let attributesList = [
         desc: "输入框占位文本",
         dataType: "string",
         params: "-",
+        value:"-",
         defaultValue: "-"
     },
     {
@@ -84,6 +93,7 @@ let attributesList = [
             '自适应内容高度，只对 type="textarea" 有效，可传入对象，如，{ minRows: 2, maxRows: 6 }',
         dataType: "boolean | object",
         params: "-",
+        value:"true/false | { minRows: xx, maxRows: xx }",
         defaultValue: "false"
     },
     {
@@ -91,13 +101,15 @@ let attributesList = [
         desc: "是否禁用",
         dataType: "boolean",
         params: "-",
+        value:"true/false",
         defaultValue: "false"
     },
     {
         attribute: "autocomplete",
-        desc: "自动补全(on | off)",
+        desc: "自动补全",
         dataType: "string",
         params: "-",
+        value:"on|off",
         defaultValue: "off"
     },
     {
@@ -105,6 +117,7 @@ let attributesList = [
         desc: "前置文字(只接受文字Avue源码定死了)",
         dataType: "string",
         params: "-",
+        value:"-",
         defaultValue: "-"
     },
     {
@@ -112,6 +125,7 @@ let attributesList = [
         desc: "后置文字(只接受文字Avue源码定死了)",
         dataType: "string",
         params: "-",
+        value:"-",
         defaultValue: "-"
     }
 ];
@@ -121,14 +135,16 @@ let eventsList = [
         attribute: "prependClick",
         desc: "前置文字点击事件",
         dataType: "function",
-        params: "无",
+        params: "-",
+        value:"-",
         defaultValue: "() => { }"
     },
     {
         attribute: "appendClick",
         desc: "后置文字点击事件",
         dataType: "function",
-        params: "无",
+        params: "-",
+        value:"-",
         defaultValue: "() => { }"
     }
 ];

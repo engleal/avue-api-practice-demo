@@ -10,7 +10,7 @@
        ></rc-markdown>
        <rc-code-card title="基本用法" desc="基本使用。" id="JCYF">
          <template slot="effect">
-            
+            <avue-rate v-model="value" :max="10" ></avue-rate>
          </template>
          <div slot="source-code">
            <pre>
@@ -39,10 +39,10 @@ export default {
         effectDesc: ComponentSource.rate.effectDesc,
         scene: ComponentSource.rate.scene,
         anchorSource: ComponentSource.rate.anchor,
-        codeSnippet: "",
-        aVueValue: "我是内容",
         attributesSource: ComponentSource.rate.attributes,
-        eventSource: ComponentSource.rate.events
+        eventSource: ComponentSource.rate.events,
+        codeSnippet: "",
+        value: 4
     };
   },
   // 实例创建前 无el 无data

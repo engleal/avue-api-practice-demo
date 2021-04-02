@@ -1,31 +1,31 @@
 <template>
- <div class="page-container">
-   <rc-basic-content>
-     <template slot="content">
-       <rc-markdown
-         :title="title"
-         :subTitle="subTitle"
-         :effectDesc="effectDesc"
-         :scene="scene"
-       ></rc-markdown>
-       <rc-code-card title="基本用法" desc="基本使用。" id="JCYF">
-         <template slot="effect">
-            
-         </template>
-         <div slot="source-code">
-           <pre>
+  <div class="page-container">
+    <rc-basic-content>
+      <template slot="content">
+        <rc-markdown :title="title" :subTitle="subTitle" :effectDesc="effectDesc" :scene="scene"></rc-markdown>
+        <rc-code-card title="基本用法" desc="基本使用。" id="JCYF">
+          <template slot="effect">
+            <avue-card :option="option" :data="data" @row-click="tip" @row-add="tip">
+              <template slot="menu" slot-scope="scope">
+                <span @click.stop="tip(scope.row,scope.index)">操作1</span>
+                <span @click.stop="tip(scope.row,scope.index)">操作2</span>
+              </template>
+            </avue-card>
+          </template>
+          <div slot="source-code">
+            <pre>
               <code class="language-xml line-numbers">{{codeSnippet}}</code>
            </pre>
-         </div>
-       </rc-code-card>
-       <rc-table title="API 属性" id="ATTRIBUTES" :dataSource="attributesSource"></rc-table>
-       <rc-table title="API 事件" id="EVENTS" :dataSource="eventSource"></rc-table>
-     </template>
-     <template slot="anchor">
-       <rc-time-line :dataSource="anchorSource"></rc-time-line>
-     </template>
-   </rc-basic-content>
- </div>
+          </div>
+        </rc-code-card>
+        <rc-table title="API 属性" id="ATTRIBUTES" :dataSource="attributesSource"></rc-table>
+        <rc-table title="API 事件" id="EVENTS" :dataSource="eventSource"></rc-table>
+      </template>
+      <template slot="anchor">
+        <rc-time-line :dataSource="anchorSource"></rc-time-line>
+      </template>
+    </rc-basic-content>
+  </div>
 </template>
 <script>
 import Prism from "prismjs";
@@ -34,15 +34,80 @@ export default {
   name: "Card",
   data() {
     return {
-        title: ComponentSource.card.title,
-        subTitle: ComponentSource.card.subTitle,
-        effectDesc: ComponentSource.card.effectDesc,
-        scene: ComponentSource.card.scene,
-        anchorSource: ComponentSource.card.anchor,
-        codeSnippet: "",
-        aVueValue: "我是内容",
-        attributesSource: ComponentSource.card.attributes,
-        eventSource: ComponentSource.card.events
+      title: ComponentSource.card.title,
+      subTitle: ComponentSource.card.subTitle,
+      effectDesc: ComponentSource.card.effectDesc,
+      scene: ComponentSource.card.scene,
+      anchorSource: ComponentSource.card.anchor,
+      codeSnippet: "",
+      attributesSource: ComponentSource.card.attributes,
+      eventSource: ComponentSource.card.events,
+      option: {
+        // addBtn:false,
+        props: {
+          img: "img",
+          title: "title",
+          info: "text"
+        }
+      },
+      data: [
+        {
+          title: "Alipay",
+          text:
+            "在中台产品的研发过程中，会出现不同的设计规范和实现方式，但其中往往存在很多类似的页面和组件，这些类似的,在中台产品的研发过程中，会出现不同的设计规范和实现方式，但其中往往存在很多类似的页面和组件，这些类似的",
+          img:
+            "https://gw.alipayobjects.com/zos/rmsportal/WdGqmHpayyMjiEhcKoVE.png"
+        },
+        {
+          title: "Angular",
+          text:
+            "在中台产品的研发过程中，会出现不同的设计规范和实现方式，但其中往往存在很多类似的页面和组件，这些类似的,在中台产品的研发过程中，会出现不同的设计规范和实现方式，但其中往往存在很多类似的页面和组件，这些类似的",
+          img:
+            "https://gw.alipayobjects.com/zos/rmsportal/zOsKZmFRdUtvpqCImOVY.png"
+        },
+        {
+          title: "Ant Design",
+          text:
+            "在中台产品的研发过程中，会出现不同的设计规范和实现方式，但其中往往存在很多类似的页面和组件，这些类似的,在中台产品的研发过程中，会出现不同的设计规范和实现方式，但其中往往存在很多类似的页面和组件，这些类似的",
+          img:
+            "https://gw.alipayobjects.com/zos/rmsportal/dURIMkkrRFpPgTuzkwnB.png"
+        },
+        {
+          title: "Ant Design Pro",
+          text:
+            "在中台产品的研发过程中，会出现不同的设计规范和实现方式，但其中往往存在很多类似的页面和组件，这些类似的,在中台产品的研发过程中，会出现不同的设计规范和实现方式，但其中往往存在很多类似的页面和组件，这些类似的",
+          img:
+            "https://gw.alipayobjects.com/zos/rmsportal/sfjbOqnsXXJgNCjCzDBL.png"
+        },
+        {
+          title: "Bootstrap",
+          text:
+            "在中台产品的研发过程中，会出现不同的设计规范和实现方式，但其中往往存在很多类似的页面和组件，这些类似的,在中台产品的研发过程中，会出现不同的设计规范和实现方式，但其中往往存在很多类似的页面和组件，这些类似的",
+          img:
+            "https://gw.alipayobjects.com/zos/rmsportal/siCrBXXhmvTQGWPNLBow.png"
+        },
+        {
+          title: "React",
+          text:
+            "在中台产品的研发过程中，会出现不同的设计规范和实现方式，但其中往往存在很多类似的页面和组件，这些类似的,在中台产品的研发过程中，会出现不同的设计规范和实现方式，但其中往往存在很多类似的页面和组件，这些类似的",
+          img:
+            "https://gw.alipayobjects.com/zos/rmsportal/kZzEzemZyKLKFsojXItE.png"
+        },
+        {
+          title: "Vue",
+          text:
+            "在中台产品的研发过程中，会出现不同的设计规范和实现方式，但其中往往存在很多类似的页面和组件，这些类似的,在中台产品的研发过程中，会出现不同的设计规范和实现方式，但其中往往存在很多类似的页面和组件，这些类似的",
+          img:
+            "https://gw.alipayobjects.com/zos/rmsportal/ComBAopevLwENQdKWiIn.png"
+        },
+        {
+          title: "Webpack",
+          text:
+            "在中台产品的研发过程中，会出现不同的设计规范和实现方式，但其中往往存在很多类似的页面和组件，这些类似的,在中台产品的研发过程中，会出现不同的设计规范和实现方式，但其中往往存在很多类似的页面和组件，这些类似的",
+          img:
+            "https://gw.alipayobjects.com/zos/rmsportal/nxkuOJlFJuAUhzlMTCEe.png"
+        }
+      ]
     };
   },
   // 实例创建前 无el 无data
@@ -58,11 +123,16 @@ export default {
   // 数据更新完成
   updated() {},
   // 实例销毁前
-  beforeDestroy(){},
+  beforeDestroy() {},
   // 实例销毁后
-  destroyed(){},
+  destroyed() {},
   // 方法合集
-  methods: {},
+  methods: {
+    tip(row, index) {
+        this.$message.success('查看控制台')
+        console.log(row, index)
+      }
+  },
   // 计算属性 一个数据受多个数据影响
   computed: {},
   // 监听属性 一个数据影响多个数据

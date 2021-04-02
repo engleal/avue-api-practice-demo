@@ -1,31 +1,26 @@
 <template>
- <div class="page-container">
-   <rc-basic-content>
-     <template slot="content">
-       <rc-markdown
-         :title="title"
-         :subTitle="subTitle"
-         :effectDesc="effectDesc"
-         :scene="scene"
-       ></rc-markdown>
-       <rc-code-card title="基本用法" desc="基本使用。" id="JCYF">
-         <template slot="effect">
-            
-         </template>
-         <div slot="source-code">
-           <pre>
+  <div class="page-container">
+    <rc-basic-content>
+      <template slot="content">
+        <rc-markdown :title="title" :subTitle="subTitle" :effectDesc="effectDesc" :scene="scene"></rc-markdown>
+        <rc-code-card title="基本用法" desc="基本使用。" id="JCYF">
+          <template slot="effect">
+            <avue-cascader placeholder="点击选择" :dic="dic"></avue-cascader>
+          </template>
+          <div slot="source-code">
+            <pre>
               <code class="language-xml line-numbers">{{codeSnippet}}</code>
            </pre>
-         </div>
-       </rc-code-card>
-       <rc-table title="API 属性" id="ATTRIBUTES" :dataSource="attributesSource"></rc-table>
-       <rc-table title="API 事件" id="EVENTS" :dataSource="eventSource"></rc-table>
-     </template>
-     <template slot="anchor">
-       <rc-time-line :dataSource="anchorSource"></rc-time-line>
-     </template>
-   </rc-basic-content>
- </div>
+          </div>
+        </rc-code-card>
+        <rc-table title="API 属性" id="ATTRIBUTES" :dataSource="attributesSource"></rc-table>
+        <rc-table title="API 事件" id="EVENTS" :dataSource="eventSource"></rc-table>
+      </template>
+      <template slot="anchor">
+        <rc-time-line :dataSource="anchorSource"></rc-time-line>
+      </template>
+    </rc-basic-content>
+  </div>
 </template>
 <script>
 import Prism from "prismjs";
@@ -34,15 +29,37 @@ export default {
   name: "Cascader",
   data() {
     return {
-        title: ComponentSource.cascader.title,
-        subTitle: ComponentSource.cascader.subTitle,
-        effectDesc: ComponentSource.cascader.effectDesc,
-        scene: ComponentSource.cascader.scene,
-        anchorSource: ComponentSource.cascader.anchor,
-        codeSnippet: "",
-        aVueValue: "我是内容",
-        attributesSource: ComponentSource.cascader.attributes,
-        eventSource: ComponentSource.cascader.events
+      title: ComponentSource.cascader.title,
+      subTitle: ComponentSource.cascader.subTitle,
+      effectDesc: ComponentSource.cascader.effectDesc,
+      scene: ComponentSource.cascader.scene,
+      anchorSource: ComponentSource.cascader.anchor,
+      attributesSource: ComponentSource.cascader.attributes,
+      eventSource: ComponentSource.cascader.events,
+      codeSnippet: `<avue-cascader v-model="value" placeholder="点击选择" :dic="dic"></avue-cascader>`,
+      value: [],
+      dic: [
+        {
+          value: "zhinan",
+          label: "指南",
+          children: [
+            {
+              value: "shejiyuanze",
+              label: "设计原则",
+              children: [
+                {
+                  value: "yizhi",
+                  label: "一致"
+                },
+                {
+                  value: "fankui",
+                  label: "反馈"
+                }
+              ]
+            }
+          ]
+        }
+      ]
     };
   },
   // 实例创建前 无el 无data
@@ -58,9 +75,9 @@ export default {
   // 数据更新完成
   updated() {},
   // 实例销毁前
-  beforeDestroy(){},
+  beforeDestroy() {},
   // 实例销毁后
-  destroyed(){},
+  destroyed() {},
   // 方法合集
   methods: {},
   // 计算属性 一个数据受多个数据影响
