@@ -7,130 +7,29 @@ let effectDescSource = "";
 let sceneSource = {
     title: "何时使用",
     desc: "",
-    features: [
-        ""
-    ]
+    features: [""]
 };
 
 let attributesList = [
     {
-        attribute: "value",
-        desc: "输入框内容",
+        attribute: "syntax",
+        desc: "代码类型，avue内置了http、xml、javascript和css。更多的参考：https://fenxianglu.cn/highlight.html",
         dataType: "string",
         params: "-",
-        defaultValue: "-"
+        value: "1、http:代码类型为http 2、xml:代码类型为html 3、javascript：代码类型为js 4、css:代码类型为css",
+        defaultValue: "javascript"
     },
     {
-        attribute: "maxlength",
-        desc: "最大输入长度",
+        attribute: "height",
+        desc: "代码块高度",
         dataType: "number",
         params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "minlength",
-        desc: "最小输入长度",
-        dataType: "number",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "showPassword",
-        desc: "是否显示切换密码图标",
-        dataType: "boolean",
-        params: "-",
-        defaultValue: "true"
-    },
-    {
-        attribute: "showWordLimit",
-        desc:
-            '是否显示输入字数统计，只在 type = "text" 或 type = "textarea" 时有效',
-        dataType: "boolean",
-        params: "-",
-        defaultValue: "false"
-    },
-    {
-        attribute: "prefixIcon",
-        desc: "输入框头部图标",
-        dataType: "string(element-icon) | slot(name=prefix)",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "suffixIcon",
-        desc: "输入框尾部图标",
-        dataType: "string(element-icon) | slot(name=suffix)",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "readonly",
-        desc: "是否只读",
-        dataType: "boolean",
-        params: "-",
-        defaultValue: "false"
-    },
-    {
-        attribute: "placeholder",
-        desc: "输入框占位文本",
-        dataType: "string",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "autosize",
-        desc:
-            '自适应内容高度，只对 type="textarea" 有效，可传入对象，如，{ minRows: 2, maxRows: 6 }',
-        dataType: "boolean | object",
-        params: "-",
-        defaultValue: "false"
-    },
-    {
-        attribute: "disabled",
-        desc: "是否禁用",
-        dataType: "boolean",
-        params: "-",
-        defaultValue: "false"
-    },
-    {
-        attribute: "autocomplete",
-        desc: "自动补全(on | off)",
-        dataType: "string",
-        params: "-",
-        defaultValue: "off"
-    },
-    {
-        attribute: "prepend",
-        desc: "前置文字(只接受文字Avue源码定死了)",
-        dataType: "string",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "append",
-        desc: "后置文字(只接受文字Avue源码定死了)",
-        dataType: "string",
-        params: "-",
-        defaultValue: "-"
+        value: "-",
+        defaultValue: "200"
     }
 ];
 
-let eventsList = [
-    {
-        attribute: "prependClick",
-        desc: "前置文字点击事件",
-        dataType: "function",
-        params: "无",
-        defaultValue: "() => { }"
-    },
-    {
-        attribute: "appendClick",
-        desc: "后置文字点击事件",
-        dataType: "function",
-        params: "无",
-        defaultValue: "() => { }"
-    }
-];
+let eventsList = [];
 
 let anchorSource = [
     {
@@ -148,11 +47,11 @@ let anchorSource = [
 ];
 
 export let CodeData = {
-    title:titleSource,
-    subTitle:subTitleSource,
-    effectDesc:effectDescSource,
+    title: titleSource,
+    subTitle: subTitleSource,
+    effectDesc: effectDescSource,
     attributes: attributesList,
     events: eventsList,
     anchor: anchorSource,
-    scene:sceneSource
+    scene: sceneSource
 };

@@ -15,121 +15,86 @@ let sceneSource = {
 let attributesList = [
     {
         attribute: "value",
-        desc: "输入框内容",
+        desc: "flow的选中的值，值为option的nodeList的数据对象的id属性值",
         dataType: "string",
         params: "-",
+        value:"-",
         defaultValue: "-"
     },
     {
-        attribute: "maxlength",
-        desc: "最大输入长度",
-        dataType: "number",
+        attribute: "option",
+        desc: "flow的数据对象和线条对象的配置对象",
+        dataType: "object",
         params: "-",
+        value:`option={
+            nodeList:[
+                {
+                    // value值就是和这个值进行比较的
+                    id:"",
+                    // 几点名字
+                    name:"",
+                    // 节点左上角left坐标
+                    left:"",
+                    // 节点左上角top坐标
+                    top:"",
+                    // 是否不展示 默认false
+                    display:false
+                }
+            ],
+            lineList:[
+                {
+                    // nodeList的name属性,起点
+                    from:"",
+                    // nodeList的name属性，终点
+                    to:""
+                }
+            ]
+        }`,
         defaultValue: "-"
     },
     {
-        attribute: "minlength",
-        desc: "最小输入长度",
-        dataType: "number",
+        attribute: "width",
+        desc: "flow的宽度",
+        dataType: "string | number",
         params: "-",
-        defaultValue: "-"
+        value:"-",
+        defaultValue: "100%"
     },
     {
-        attribute: "showPassword",
-        desc: "是否显示切换密码图标",
-        dataType: "boolean",
+        attribute: "height",
+        desc: "flow的高度",
+        dataType: "string | number",
         params: "-",
-        defaultValue: "true"
-    },
-    {
-        attribute: "showWordLimit",
-        desc:
-            '是否显示输入字数统计，只在 type = "text" 或 type = "textarea" 时有效',
-        dataType: "boolean",
-        params: "-",
-        defaultValue: "false"
-    },
-    {
-        attribute: "prefixIcon",
-        desc: "输入框头部图标",
-        dataType: "string(element-icon) | slot(name=prefix)",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "suffixIcon",
-        desc: "输入框尾部图标",
-        dataType: "string(element-icon) | slot(name=suffix)",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "readonly",
-        desc: "是否只读",
-        dataType: "boolean",
-        params: "-",
-        defaultValue: "false"
-    },
-    {
-        attribute: "placeholder",
-        desc: "输入框占位文本",
-        dataType: "string",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "autosize",
-        desc:
-            '自适应内容高度，只对 type="textarea" 有效，可传入对象，如，{ minRows: 2, maxRows: 6 }',
-        dataType: "boolean | object",
-        params: "-",
-        defaultValue: "false"
-    },
-    {
-        attribute: "disabled",
-        desc: "是否禁用",
-        dataType: "boolean",
-        params: "-",
-        defaultValue: "false"
-    },
-    {
-        attribute: "autocomplete",
-        desc: "自动补全(on | off)",
-        dataType: "string",
-        params: "-",
-        defaultValue: "off"
-    },
-    {
-        attribute: "prepend",
-        desc: "前置文字(只接受文字Avue源码定死了)",
-        dataType: "string",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "append",
-        desc: "后置文字(只接受文字Avue源码定死了)",
-        dataType: "string",
-        params: "-",
-        defaultValue: "-"
+        value:"-",
+        defaultValue: "100%"
     }
 ];
 
 let eventsList = [
     {
-        attribute: "prependClick",
-        desc: "前置文字点击事件",
+        attribute: "click",
+        desc: "flow的节点对象的点击事件",
         dataType: "function",
         params: "无",
+        value:"1、node:nodeList的数据对象",
+        defaultValue: "(node) => { }"
+    },
+    {
+        attribute: "nodeAdd",
+        desc: "新增节点事件,用法是：this.refs.xxx.addNode(nodeName)",
+        dataType: "function",
+        params: "",
+        value:"-",
         defaultValue: "() => { }"
     },
     {
-        attribute: "appendClick",
-        desc: "后置文字点击事件",
+        attribute: "deleteNode",
+        desc: "删除节点事件，用法是this.refs.xxx.deleteNode(nodeId)",
         dataType: "function",
-        params: "无",
+        params: "",
+        value:"",
         defaultValue: "() => { }"
-    }
+    },
 ];
 
 let anchorSource = [

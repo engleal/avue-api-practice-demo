@@ -7,111 +7,34 @@ let effectDescSource = "";
 let sceneSource = {
     title: "何时使用",
     desc: "",
-    features: [
-        ""
-    ]
+    features: [""]
 };
 
 let attributesList = [
     {
-        attribute: "value",
-        desc: "输入框内容",
+        attribute: "size",
+        desc: "设置空元素图片的高度大小",
         dataType: "string",
         params: "-",
-        defaultValue: "-"
+        value: "-",
+        defaultValue: "100"
     },
     {
-        attribute: "maxlength",
-        desc: "最大输入长度",
-        dataType: "number",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "minlength",
-        desc: "最小输入长度",
-        dataType: "number",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "showPassword",
-        desc: "是否显示切换密码图标",
-        dataType: "boolean",
-        params: "-",
-        defaultValue: "true"
-    },
-    {
-        attribute: "showWordLimit",
-        desc:
-            '是否显示输入字数统计，只在 type = "text" 或 type = "textarea" 时有效',
-        dataType: "boolean",
-        params: "-",
-        defaultValue: "false"
-    },
-    {
-        attribute: "prefixIcon",
-        desc: "输入框头部图标",
-        dataType: "string(element-icon) | slot(name=prefix)",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "suffixIcon",
-        desc: "输入框尾部图标",
-        dataType: "string(element-icon) | slot(name=suffix)",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "readonly",
-        desc: "是否只读",
-        dataType: "boolean",
-        params: "-",
-        defaultValue: "false"
-    },
-    {
-        attribute: "placeholder",
-        desc: "输入框占位文本",
+        attribute: "image",
+        desc: "设置空元素图片的地址",
         dataType: "string",
         params: "-",
-        defaultValue: "-"
+        value: "-",
+        defaultValue:
+            "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTg0IiBoZWlnaHQ9IjE1MiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjQgMzEuNjcpIj4KICAgICAgPGVsbGlwc2UgZmlsbC1vcGFjaXR5PSIuOCIgZmlsbD0iI0Y1RjVGNyIgY3g9IjY3Ljc5NyIgY3k9IjEwNi44OSIgcng9IjY3Ljc5NyIgcnk9IjEyLjY2OCIvPgogICAgICA8cGF0aCBkPSJNMTIyLjAzNCA2OS42NzRMOTguMTA5IDQwLjIyOWMtMS4xNDgtMS4zODYtMi44MjYtMi4yMjUtNC41OTMtMi4yMjVoLTUxLjQ0Yy0xLjc2NiAwLTMuNDQ0LjgzOS00LjU5MiAyLjIyNUwxMy41NiA2OS42NzR2MTUuMzgzaDEwOC40NzVWNjkuNjc0eiIgZmlsbD0iI0FFQjhDMiIvPgogICAgICA8cGF0aCBkPSJNMTAxLjUzNyA4Ni4yMTRMODAuNjMgNjEuMTAyYy0xLjAwMS0xLjIwNy0yLjUwNy0xLjg2Ny00LjA0OC0xLjg2N0gzMS43MjRjLTEuNTQgMC0zLjA0Ny42Ni00LjA0OCAxLjg2N0w2Ljc2OSA4Ni4yMTR2MTMuNzkyaDk0Ljc2OFY4Ni4yMTR6IiBmaWxsPSJ1cmwoI2xpbmVhckdyYWRpZW50LTEpIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMy41NikiLz4KICAgICAgPHBhdGggZD0iTTMzLjgzIDBoNjcuOTMzYTQgNCAwIDAgMSA0IDR2OTMuMzQ0YTQgNCAwIDAgMS00IDRIMzMuODNhNCA0IDAgMCAxLTQtNFY0YTQgNCAwIDAgMSA0LTR6IiBmaWxsPSIjRjVGNUY3Ii8+CiAgICAgIDxwYXRoIGQ9Ik00Mi42NzggOS45NTNoNTAuMjM3YTIgMiAwIDAgMSAyIDJWMzYuOTFhMiAyIDAgMCAxLTIgMkg0Mi42NzhhMiAyIDAgMCAxLTItMlYxMS45NTNhMiAyIDAgMCAxIDItMnpNNDIuOTQgNDkuNzY3aDQ5LjcxM2EyLjI2MiAyLjI2MiAwIDEgMSAwIDQuNTI0SDQyLjk0YTIuMjYyIDIuMjYyIDAgMCAxIDAtNC41MjR6TTQyLjk0IDYxLjUzaDQ5LjcxM2EyLjI2MiAyLjI2MiAwIDEgMSAwIDQuNTI1SDQyLjk0YTIuMjYyIDIuMjYyIDAgMCAxIDAtNC41MjV6TTEyMS44MTMgMTA1LjAzMmMtLjc3NSAzLjA3MS0zLjQ5NyA1LjM2LTYuNzM1IDUuMzZIMjAuNTE1Yy0zLjIzOCAwLTUuOTYtMi4yOS02LjczNC01LjM2YTcuMzA5IDcuMzA5IDAgMCAxLS4yMjItMS43OVY2OS42NzVoMjYuMzE4YzIuOTA3IDAgNS4yNSAyLjQ0OCA1LjI1IDUuNDJ2LjA0YzAgMi45NzEgMi4zNyA1LjM3IDUuMjc3IDUuMzdoMzQuNzg1YzIuOTA3IDAgNS4yNzctMi40MjEgNS4yNzctNS4zOTNWNzUuMWMwLTIuOTcyIDIuMzQzLTUuNDI2IDUuMjUtNS40MjZoMjYuMzE4djMzLjU2OWMwIC42MTctLjA3NyAxLjIxNi0uMjIxIDEuNzg5eiIgZmlsbD0iI0RDRTBFNiIvPgogICAgPC9nPgogICAgPHBhdGggZD0iTTE0OS4xMjEgMzMuMjkybC02LjgzIDIuNjVhMSAxIDAgMCAxLTEuMzE3LTEuMjNsMS45MzctNi4yMDdjLTIuNTg5LTIuOTQ0LTQuMTA5LTYuNTM0LTQuMTA5LTEwLjQwOEMxMzguODAyIDguMTAyIDE0OC45MiAwIDE2MS40MDIgMCAxNzMuODgxIDAgMTg0IDguMTAyIDE4NCAxOC4wOTdjMCA5Ljk5NS0xMC4xMTggMTguMDk3LTIyLjU5OSAxOC4wOTctNC41MjggMC04Ljc0NC0xLjA2Ni0xMi4yOC0yLjkwMnoiIGZpbGw9IiNEQ0UwRTYiLz4KICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE0OS42NSAxNS4zODMpIiBmaWxsPSIjRkZGIj4KICAgICAgPGVsbGlwc2UgY3g9IjIwLjY1NCIgY3k9IjMuMTY3IiByeD0iMi44NDkiIHJ5PSIyLjgxNSIvPgogICAgICA8cGF0aCBkPSJNNS42OTggNS42M0gwTDIuODk4LjcwNHpNOS4yNTkuNzA0aDQuOTg1VjUuNjNIOS4yNTl6Ii8+CiAgICA8L2c+CiAgPC9nPgo8L3N2Zz4K"
     },
     {
-        attribute: "autosize",
-        desc:
-            '自适应内容高度，只对 type="textarea" 有效，可传入对象，如，{ minRows: 2, maxRows: 6 }',
-        dataType: "boolean | object",
-        params: "-",
-        defaultValue: "false"
-    },
-    {
-        attribute: "disabled",
-        desc: "是否禁用",
-        dataType: "boolean",
-        params: "-",
-        defaultValue: "false"
-    },
-    {
-        attribute: "autocomplete",
-        desc: "自动补全(on | off)",
+        attribute: "desc",
+        desc: "描述文字大小",
         dataType: "string",
         params: "-",
-        defaultValue: "off"
-    },
-    {
-        attribute: "prepend",
-        desc: "前置文字(只接受文字Avue源码定死了)",
-        dataType: "string",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "append",
-        desc: "后置文字(只接受文字Avue源码定死了)",
-        dataType: "string",
-        params: "-",
-        defaultValue: "-"
+        value: "-",
+        defaultValue: "暂无数据"
     }
 ];
 
@@ -119,13 +42,6 @@ let eventsList = [
     {
         attribute: "prependClick",
         desc: "前置文字点击事件",
-        dataType: "function",
-        params: "无",
-        defaultValue: "() => { }"
-    },
-    {
-        attribute: "appendClick",
-        desc: "后置文字点击事件",
         dataType: "function",
         params: "无",
         defaultValue: "() => { }"
@@ -148,11 +64,11 @@ let anchorSource = [
 ];
 
 export let EmptyData = {
-    title:titleSource,
-    subTitle:subTitleSource,
-    effectDesc:effectDescSource,
+    title: titleSource,
+    subTitle: subTitleSource,
+    effectDesc: effectDescSource,
     attributes: attributesList,
     events: eventsList,
     anchor: anchorSource,
-    scene:sceneSource
+    scene: sceneSource
 };

@@ -62,6 +62,7 @@ export default {
           }
         ],
         option:{
+          indeterminate:true,
           title:'表格的标题',
           titleSize:'h3',
           titleStyle:{

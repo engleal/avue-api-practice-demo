@@ -1,31 +1,36 @@
 <template>
- <div class="page-container">
-   <rc-basic-content>
-     <template slot="content">
-       <rc-markdown
-         :title="title"
-         :subTitle="subTitle"
-         :effectDesc="effectDesc"
-         :scene="scene"
-       ></rc-markdown>
-       <rc-code-card title="基本用法" desc="基本使用。" id="JCYF">
-         <template slot="effect">
-            
-         </template>
-         <div slot="source-code">
-           <pre>
+  <div class="page-container">
+    <rc-basic-content>
+      <template slot="content">
+        <rc-markdown :title="title" :subTitle="subTitle" :effectDesc="effectDesc" :scene="scene"></rc-markdown>
+        <rc-code-card title="基本用法" desc="基本使用。" id="JCYF">
+          <template slot="effect">
+            <el-button @click="openPreview(0)" style="margin-bottom:20px;">打开图片预览</el-button>
+            <p>
+              <img
+                width="200px"
+                style="margin-right:20px"
+                v-for="(d, index) of datas"
+                :src="d.thumbUrl"
+                @click="openPreview(index)"
+                :key="index"
+              >
+            </p>
+          </template>
+          <div slot="source-code">
+            <pre>
               <code class="language-xml line-numbers">{{codeSnippet}}</code>
            </pre>
-         </div>
-       </rc-code-card>
-       <rc-table title="API 属性" id="ATTRIBUTES" :dataSource="attributesSource"></rc-table>
-       <rc-table title="API 事件" id="EVENTS" :dataSource="eventSource"></rc-table>
-     </template>
-     <template slot="anchor">
-       <rc-time-line :dataSource="anchorSource"></rc-time-line>
-     </template>
-   </rc-basic-content>
- </div>
+          </div>
+        </rc-code-card>
+        <rc-table title="API 属性" id="ATTRIBUTES" :dataSource="attributesSource"></rc-table>
+        <rc-table title="API 事件" id="EVENTS" :dataSource="eventSource"></rc-table>
+      </template>
+      <template slot="anchor">
+        <rc-time-line :dataSource="anchorSource"></rc-time-line>
+      </template>
+    </rc-basic-content>
+  </div>
 </template>
 <script>
 import Prism from "prismjs";
@@ -34,15 +39,25 @@ export default {
   name: "ImagePreview",
   data() {
     return {
-        title: ComponentSource.imagePreview.title,
-        subTitle: ComponentSource.imagePreview.subTitle,
-        effectDesc: ComponentSource.imagePreview.effectDesc,
-        scene: ComponentSource.imagePreview.scene,
-        anchorSource: ComponentSource.imagePreview.anchor,
-        codeSnippet: "",
-        aVueValue: "我是内容",
-        attributesSource: ComponentSource.imagePreview.attributes,
-        eventSource: ComponentSource.imagePreview.events
+      title: ComponentSource.imagePreview.title,
+      subTitle: ComponentSource.imagePreview.subTitle,
+      effectDesc: ComponentSource.imagePreview.effectDesc,
+      scene: ComponentSource.imagePreview.scene,
+      anchorSource: ComponentSource.imagePreview.anchor,
+      codeSnippet: "",
+      aVueValue: "我是内容",
+      attributesSource: ComponentSource.imagePreview.attributes,
+      eventSource: ComponentSource.imagePreview.events,
+      datas: [
+        {
+          thumbUrl: `https://img.alicdn.com/tfs/TB1uevcCrj1gK0jSZFuXXcrHpXa-1880-640.jpg`,
+          url: `https://img.alicdn.com/tfs/TB1uevcCrj1gK0jSZFuXXcrHpXa-1880-640.jpg`
+        },
+        {
+          thumbUrl: `https://img.alicdn.com/tfs/TB1v28TC8v0gK0jSZKbXXbK2FXa-1880-640.jpg`,
+          url: `https://img.alicdn.com/tfs/TB1v28TC8v0gK0jSZKbXXbK2FXa-1880-640.jpg`
+        }
+      ]
     };
   },
   // 实例创建前 无el 无data
@@ -58,11 +73,15 @@ export default {
   // 数据更新完成
   updated() {},
   // 实例销毁前
-  beforeDestroy(){},
+  beforeDestroy() {},
   // 实例销毁后
-  destroyed(){},
+  destroyed() {},
   // 方法合集
-  methods: {},
+  methods: {
+     openPreview(index = 0) {
+      this.$ImagePreview(this.datas, index);
+    }
+  },
   // 计算属性 一个数据受多个数据影响
   computed: {},
   // 监听属性 一个数据影响多个数据

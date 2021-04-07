@@ -7,127 +7,78 @@ let effectDescSource = "";
 let sceneSource = {
     title: "何时使用",
     desc: "",
-    features: [
-        ""
-    ]
+    features: [""]
 };
 
 let attributesList = [
     {
-        attribute: "value",
-        desc: "输入框内容",
-        dataType: "string",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "maxlength",
-        desc: "最大输入长度",
-        dataType: "number",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "minlength",
-        desc: "最小输入长度",
-        dataType: "number",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "showPassword",
-        desc: "是否显示切换密码图标",
+        attribute: "animation",
+        desc: "是否开启动画，开启动画后将以动画变化的形式达到最终值，如果为false将只显示end的值，其他属性都将失效",
         dataType: "boolean",
         params: "-",
+        value: "true/false",
         defaultValue: "true"
     },
     {
-        attribute: "showWordLimit",
-        desc:
-            '是否显示输入字数统计，只在 type = "text" 或 type = "textarea" 时有效',
-        dataType: "boolean",
+        attribute: "start",
+        desc: "数字的起点",
+        dataType: "number",
         params: "-",
-        defaultValue: "false"
+        value: "-",
+        defaultValue: "0"
     },
     {
-        attribute: "prefixIcon",
-        desc: "输入框头部图标",
-        dataType: "string(element-icon) | slot(name=prefix)",
+        attribute: "end",
+        desc: "数字的终点",
+        dataType: "number",
         params: "-",
+        value: "-",
         defaultValue: "-"
     },
     {
-        attribute: "suffixIcon",
-        desc: "输入框尾部图标",
-        dataType: "string(element-icon) | slot(name=suffix)",
+        attribute: "decimals",
+        desc: "小数位数,默认0",
+        dataType: "number",
         params: "-",
-        defaultValue: "-"
+        value: "-",
+        defaultValue: "0"
     },
     {
-        attribute: "readonly",
-        desc: "是否只读",
-        dataType: "boolean",
+        attribute: "duration",
+        desc: "从start到end需要的时间,默认单位s",
+        dataType: "number",
         params: "-",
-        defaultValue: "false"
+        value: "-",
+        defaultValue: "2"
     },
     {
-        attribute: "placeholder",
-        desc: "输入框占位文本",
-        dataType: "string",
+        attribute: "options",
+        desc: "countUp的其他配置项",
+        dataType: "object",
         params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "autosize",
-        desc:
-            '自适应内容高度，只对 type="textarea" 有效，可传入对象，如，{ minRows: 2, maxRows: 6 }',
-        dataType: "boolean | object",
-        params: "-",
-        defaultValue: "false"
-    },
-    {
-        attribute: "disabled",
-        desc: "是否禁用",
-        dataType: "boolean",
-        params: "-",
-        defaultValue: "false"
-    },
-    {
-        attribute: "autocomplete",
-        desc: "自动补全(on | off)",
-        dataType: "string",
-        params: "-",
-        defaultValue: "off"
-    },
-    {
-        attribute: "prepend",
-        desc: "前置文字(只接受文字Avue源码定死了)",
-        dataType: "string",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "append",
-        desc: "后置文字(只接受文字Avue源码定死了)",
-        dataType: "string",
-        params: "-",
-        defaultValue: "-"
+        value: `options={
+            // 小数点的分隔符，默认，
+            decimal:"..",
+            // 前置文字 默认空
+            prefix:"前置",
+            // 后置文字 默认空
+            suffix:"后置",
+            // 开启千分位分割效果的分隔符，默认，
+            separator:"/",
+            // 是否开启千分位分隔效果 默认true
+            useGrouping:false
+        }`,
+        defaultValue: ""
     }
 ];
 
 let eventsList = [
     {
-        attribute: "prependClick",
-        desc: "前置文字点击事件",
+        attribute: "callback",
+        desc: "动画开始时候执行的函数",
         dataType: "function",
         params: "无",
-        defaultValue: "() => { }"
-    },
-    {
-        attribute: "appendClick",
-        desc: "后置文字点击事件",
-        dataType: "function",
-        params: "无",
+        value: "-",
         defaultValue: "() => { }"
     }
 ];
@@ -148,11 +99,11 @@ let anchorSource = [
 ];
 
 export let CountUpData = {
-    title:titleSource,
-    subTitle:subTitleSource,
-    effectDesc:effectDescSource,
+    title: titleSource,
+    subTitle: subTitleSource,
+    effectDesc: effectDescSource,
     attributes: attributesList,
     events: eventsList,
     anchor: anchorSource,
-    scene:sceneSource
+    scene: sceneSource
 };
