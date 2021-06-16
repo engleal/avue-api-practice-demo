@@ -4,131 +4,73 @@ let subTitleSource = "图标选择输入框";
 
 let effectDescSource = "";
 
+let preface = "主要是一个el-input和el-color-picker组成";
+
 let sceneSource = {
     title: "何时使用",
     desc: "",
-    features: [
-        "选择icon时可以使用"
-    ]
+    features: ["选择icon时可以使用"]
 };
 
 let attributesList = [
-    {
-        attribute: "value",
-        desc: "输入框内容",
-        dataType: "string",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "maxlength",
-        desc: "最大输入长度",
-        dataType: "number",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "minlength",
-        desc: "最小输入长度",
-        dataType: "number",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "showPassword",
-        desc: "是否显示切换密码图标",
-        dataType: "boolean",
-        params: "-",
-        defaultValue: "true"
-    },
-    {
-        attribute: "showWordLimit",
-        desc:
-            '是否显示输入字数统计，只在 type = "text" 或 type = "textarea" 时有效',
-        dataType: "boolean",
-        params: "-",
-        defaultValue: "false"
-    },
-    {
-        attribute: "prefixIcon",
-        desc: "输入框头部图标",
-        dataType: "string(element-icon) | slot(name=prefix)",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "suffixIcon",
-        desc: "输入框尾部图标",
-        dataType: "string(element-icon) | slot(name=suffix)",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "readonly",
-        desc: "是否只读",
-        dataType: "boolean",
-        params: "-",
-        defaultValue: "false"
-    },
     {
         attribute: "placeholder",
         desc: "输入框占位文本",
         dataType: "string",
         params: "-",
+        value: "-",
         defaultValue: "-"
     },
     {
-        attribute: "autosize",
-        desc:
-            '自适应内容高度，只对 type="textarea" 有效，可传入对象，如，{ minRows: 2, maxRows: 6 }',
-        dataType: "boolean | object",
+        attribute: "size",
+        desc: "输入框尺寸",
+        dataType: "string",
         params: "-",
-        defaultValue: "false"
+        value: "medium / small / mini",
+        defaultValue: "-"
     },
     {
         attribute: "disabled",
-        desc: "是否禁用",
+        desc: "禁用",
         dataType: "boolean",
         params: "-",
+        value: "true/false",
         defaultValue: "false"
     },
     {
-        attribute: "autocomplete",
-        desc: "自动补全(on | off)",
-        dataType: "string",
+        attribute: "clearable",
+        desc: "是否可清空",
+        dataType: "boolean",
         params: "-",
-        defaultValue: "off"
+        value: "true/false",
+        defaultValue: "true"
     },
     {
-        attribute: "prepend",
-        desc: "前置文字(只接受文字Avue源码定死了)",
-        dataType: "string",
+        attribute: "change",
+        desc: "-",
+        dataType: "function",
         params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "append",
-        desc: "后置文字(只接受文字Avue源码定死了)",
-        dataType: "string",
-        params: "-",
+        value: "-",
         defaultValue: "-"
     }
 ];
 
 let eventsList = [
     {
-        attribute: "prependClick",
-        desc: "前置文字点击事件",
-        dataType: "function",
-        params: "无",
-        defaultValue: "() => { }"
+        attribute: "input",
+        desc: "-",
+        dataType: "-",
+        params: "-",
+        value: "-",
+        defaultValue: "-"
     },
     {
-        attribute: "appendClick",
-        desc: "后置文字点击事件",
-        dataType: "function",
-        params: "无",
-        defaultValue: "() => { }"
+        attribute: "change",
+        desc: "-",
+        dataType: "-",
+        params: "-",
+        value: "-",
+        defaultValue: "-"
     }
 ];
 
@@ -148,11 +90,12 @@ let anchorSource = [
 ];
 
 export let InputColorData = {
-    title:titleSource,
-    subTitle:subTitleSource,
-    effectDesc:effectDescSource,
+    title: titleSource,
+    subTitle: subTitleSource,
+    effectDesc: effectDescSource,
+    preface:preface,
     attributes: attributesList,
     events: eventsList,
     anchor: anchorSource,
-    scene:sceneSource
+    scene: sceneSource
 };

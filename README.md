@@ -1,17 +1,17 @@
-# avue-api-practice-demo
+# avue-api-practice
 
-> avue ui框架api 练习项目
+> A Vue.js project
 
 ## Build Setup
 
 ``` bash
-# 安装依赖
+# install dependencies
 npm install
 
-# 启动项目 at localhost:8080
-npm run start
+# serve with hot reload at localhost:8080
+npm run dev
 
-# 编译项目
+# build for production with minification
 npm run build
 
 # build for production and view the bundle analyzer report

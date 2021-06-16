@@ -10,7 +10,12 @@
        ></rc-markdown>
        <rc-code-card title="基本用法" desc="基本使用。" id="JCYF">
          <template slot="effect">
-            
+           <div style="position:relative;height:400px;" @mousedown="handleMouseDown">
+             <avue-draggable :width="obj.width" :height="obj.height" :left="obj.left" :top="obj.top" id="draggable" ref="draggable" @focus="handleFocus" @blur="handleBlur">
+              <div style="width:200px;height:200px;background:red">
+              </div>
+            </avue-draggable>
+           </div>
          </template>
          <div slot="source-code">
            <pre>
@@ -40,7 +45,12 @@ export default {
         scene: ComponentSource.draggable.scene,
         anchorSource: ComponentSource.draggable.anchor,
         codeSnippet: "",
-        aVueValue: "我是内容",
+        obj:{
+          width:200,
+          height:200,
+          left:300,
+          top:200
+        },
         attributesSource: ComponentSource.draggable.attributes,
         eventSource: ComponentSource.draggable.events
     };
@@ -62,7 +72,16 @@ export default {
   // 实例销毁后
   destroyed(){},
   // 方法合集
-  methods: {},
+  methods: {
+      //获取焦点
+    handleFocus ({index, left, top, width, height }) {
+      console.log(index, left, top, width, height)
+    },
+    //失去焦点
+    handleBlur ({index, left, top, width, height }) {
+      console.log(index, left, top, width, height)
+    },
+  },
   // 计算属性 一个数据受多个数据影响
   computed: {},
   // 监听属性 一个数据影响多个数据

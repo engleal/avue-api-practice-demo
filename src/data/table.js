@@ -13,7 +13,7 @@ let sceneSource = {
 let attributesList = [
     {
         attribute: "option",
-        desc: "表格配置对象",
+        desc: "表格配置对象，参看下方option配置",
         dataType: "object",
         params: "-",
         value: `option={
@@ -57,7 +57,26 @@ let attributesList = [
             page:{
 
             },
-            // 
+            // 列表项
+            column:[
+                {
+                    // 字符串 显示的标题
+                    label:"",
+                    // 字符串 最小宽度
+                    minWidth:'',
+                    // 字符串 el-table-column的宽度
+                    width:"",
+                    // 函数 列标题 Label 区域渲染使用的 Function
+                    renderHeader:()=>{},
+                    // 字符串 对齐方式 left/center/right 默认值left
+                    align:"center",
+                    // 字符串 表头对齐方式，若不设置该项，则使用表格的对齐方式	left/center/right
+                    headerAlign:"center"
+                    // 字符串 对应列内容的字段名，也可以使用 property 属性
+                    prop:"",
+
+                }
+            ]
         }`,
         defaultValue: "-"
     },
@@ -275,14 +294,668 @@ let attributesList = [
 
 let eventsList = [
     {
-        attribute: "prependClick",
-        desc: "前置文字点击事件",
+        attribute: "search-change",
+        desc: "搜索事件",
         dataType: "function",
-        params: "无",
-        value: "",
-        defaultValue: "() => { }"
+        params: "-",
+        value: "1、form：搜索部分的form参数 2、done:",
+        defaultValue: "(form,done) => { }"
+    },
+    {
+        attribute: "search-reset",
+        desc: "重置事件",
+        dataType: "function",
+        params: "-",
+        value: "1、form：搜索部分的form参数",
+        defaultValue: "(form) => { }"
     }
 ];
+
+let optionList = [
+    {
+        attribute: "card",
+        desc: "是否显示成卡片模式",
+        dataType: "boolean",
+        params: "-",
+        value: "true/false",
+        defaultValue: "false"
+    },
+    {
+        attribute: "searchShow",
+        desc: "初始是否显示seach区域",
+        dataType: "boolean",
+        params: "-",
+        value: "true/false",
+        defaultValue: "true"
+    },
+    {
+        attribute: "seach",
+        desc:
+            "是search部分的form结构，search部分是由一个form组成的这个就是这个form的v-model 暂时未测验成功",
+        dataType: "object",
+        params: "-",
+        value: "-",
+        defaultValue: "{}"
+    },
+    {
+        attribute: "searchIcon",
+        desc: "是否启用展开收缩按钮需要和seachIndex配合使用 默认值false",
+        dataType: "boolean",
+        params: "-",
+        value: "true/false",
+        defaultValue: "false"
+    },
+    {
+        attribute: "searchIndex",
+        desc: "配置收缩时候的展示的个数 默认为2",
+        dataType: "number",
+        params: "-",
+        value: "-",
+        defaultValue: "2"
+    },
+    {
+        attribute: "searchSpan",
+        desc: "设置搜索项的宽度，范围为0-24 默认值6",
+        dataType: "number",
+        params: "-",
+        value: "-",
+        defaultValue: "6"
+    },
+    {
+        attribute: "searchGutter",
+        desc: "设置搜索项的之间的间隔宽度 未实验成功",
+        dataType: "number",
+        params: "-",
+        value: "-",
+        defaultValue: ""
+    },
+    {
+        attribute: "searchLabelWidth",
+        desc: "设置搜索项的label的宽度 默认值80",
+        dataType: "number",
+        params: "-",
+        value: "-",
+        defaultValue: "80"
+    },
+    {
+        attribute: "searchLabelPosition",
+        desc: "设置搜索项的label的文字的摆放位置是左是中还是右 默认值right",
+        dataType: "string",
+        params: "-",
+        value: "-",
+        defaultValue: "right"
+    },
+    {
+        attribute: "searchCheckStrictly",
+        desc: "是否严格的遵守父子节点不互相关联 默认值false 未测试",
+        dataType: "boolean",
+        params: "-",
+        value: "true/false",
+        defaultValue: "false"
+    },
+    {
+        attribute: "searchSize",
+        desc: "设置搜索项的大小 范围为medium/small/mini",
+        dataType: "string",
+        params: "-",
+        value: "-",
+        defaultValue: ""
+    },
+    {
+        attribute: "searchBtnText",
+        desc: "提交按钮文案",
+        dataType: "string",
+        params: "-",
+        value: "-",
+        defaultValue: "search"
+    },
+    {
+        attribute: "searchBtnIcon",
+        desc: "提交按钮的icon",
+        dataType: "string",
+        params: "-",
+        value: "-",
+        defaultValue: ""
+    },
+    {
+        attribute: "searchBtn",
+        desc: "是否显示提交按钮",
+        dataType: "boolean",
+        params: "-",
+        value: "true/false",
+        defaultValue: "true"
+    },
+    {
+        attribute: "emptyBtnText",
+        desc: "清空按钮文案",
+        dataType: "string",
+        params: "-",
+        value: "-",
+        defaultValue: "empty"
+    },
+    {
+        attribute: "emptyBtnIcon",
+        desc: "清空按钮的icon",
+        dataType: "string",
+        params: "-",
+        value: "-",
+        defaultValue: ""
+    },
+    {
+        attribute: "emptyBtn",
+        desc: "是否显示清空按钮",
+        dataType: "boolean",
+        params: "-",
+        value: "true/false",
+        defaultValue: "true"
+    },
+    {
+        attribute: "searchMenuSpan",
+        desc: "设置包提交按钮和清空按钮容器的大小(0-24) 默认值24",
+        dataType: "number",
+        params: "-",
+        value: "-",
+        defaultValue: "24"
+    },
+    {
+        attribute: "searchMenuPosition",
+        desc:
+            "设置提交按钮和清空按钮在容器中的摆放位置（left|center|right）默认值left",
+        dataType: "string",
+        params: "-",
+        value: "-",
+        defaultValue: "center"
+    },
+    {
+        attribute: "searchEnter",
+        desc: "是否开启回车事件",
+        dataType: "boolean",
+        params: "-",
+        value: "true/false",
+        defaultValue: "false"
+    },
+    {
+        attribute: "enter",
+        desc: "是否开启回车事件",
+        dataType: "boolean",
+        params: "-",
+        value: "true/false",
+        defaultValue: "false"
+    },
+    {
+        attribute: "addBtn",
+        desc: "是否显示增加的按钮",
+        dataType: "boolean",
+        params: "-",
+        value: "true/false",
+        defaultValue: "false"
+    },
+    {
+        attribute: "addBtnText",
+        desc: "增加按钮文字",
+        dataType: "string",
+        params: "-",
+        value: "-",
+        defaultValue: "add"
+    },
+    {
+        attribute: "dateBtn",
+        desc: "是否显示date选择器",
+        dataType: "boolean",
+        params: "-",
+        value: "true/false",
+        defaultValue: "false"
+    },
+    {
+        attribute: "printBtn",
+        desc: "是否显示打印按钮",
+        dataType: "boolean",
+        params: "-",
+        value: "true/false",
+        defaultValue: "false"
+    },
+    {
+        attribute: "printBtnText",
+        desc: "打印按钮的文案",
+        dataType: "string",
+        params: "-",
+        value: "-",
+        defaultValue: "print"
+    },
+    {
+        attribute: "excelBtn",
+        desc: "是否显示转excel按钮",
+        dataType: "boolean",
+        params: "-",
+        value: "true/false",
+        defaultValue: "false"
+    },
+    {
+        attribute: "excelBtnText",
+        desc: "转化成excel按钮的文案",
+        dataType: "string",
+        params: "-",
+        value: "-",
+        defaultValue: "excel"
+    },
+    {
+        attribute: "refreshBtn",
+        desc: "是否显示刷新按钮",
+        dataType: "boolean",
+        params: "-",
+        value: "true/false",
+        defaultValue: "false"
+    },
+    {
+        attribute: "columnBtn",
+        desc: "是否显示侧边栏的穿梭框按钮",
+        dataType: "boolean",
+        params: "-",
+        value: "true/false",
+        defaultValue: "false"
+    },
+    {
+        attribute: "searchShowBtn",
+        desc: "是否显示操控搜索区域的按钮",
+        dataType: "boolean",
+        params: "-",
+        value: "true/false",
+        defaultValue: "false"
+    },
+    {
+        attribute: "filterBtn",
+        desc: "",
+        dataType: "boolean",
+        params: "-",
+        value: "true/false",
+        defaultValue: "false"
+    },
+
+    {
+        attribute: "",
+        desc: "",
+        dataType: "boolean",
+        params: "-",
+        value: "true/false",
+        defaultValue: "false"
+    },
+    {
+        attribute: "",
+        desc: "",
+        dataType: "string",
+        params: "-",
+        value: "-",
+        defaultValue: ""
+    },
+    {
+        attribute: "",
+        desc: "",
+        dataType: "number",
+        params: "-",
+        value: "-",
+        defaultValue: ""
+    },
+    {
+        attribute: "",
+        desc: "",
+        dataType: "array",
+        params: "-",
+        value: "-",
+        defaultValue: "[]"
+    }
+];
+
+let columnOptionList = [
+    {
+        attribute: "search",
+        desc: "一旦配置search为true，此对象将作为搜索区域的某一项进行展示",
+        dataType: "boolean",
+        params: "-",
+        value: "true/false",
+        defaultValue: "false"
+    },
+    {
+        attribute: "type",
+        desc: "配置form组件的类型，可以为value类型值",
+        dataType: "string",
+        params: "-",
+        value:
+            "img|array|url|time|timerange|dates|date|datetime|datetimerange|daterange|time|timerange|week|month|monthrange|year|password|textarea|search|tree|number|icon|color|table|map|select|checkbox|cascader|radio|upload",
+        defaultValue: "-"
+    },
+    {
+        attribute: "searchRange",
+        desc: "当type为date,datetime,time时有效，意为是否开启范围搜索",
+        dataType: "boolean",
+        params: "-",
+        value: "true/false",
+        defaultValue: "false"
+    },
+    {
+        attribute: "searchSpan",
+        desc: "同option.searchSpan",
+        dataType: "number",
+        params: "-",
+        value: "-",
+        defaultValue: "-"
+    },
+    {
+        attribute: "searchGutter",
+        desc: "同option.searchGutter",
+        dataType: "number",
+        params: "-",
+        value: "-",
+        defaultValue: "-"
+    },
+    {
+        attribute: "searchLabelWidth",
+        desc: "同option.searchLabelWidth",
+        dataType: "number",
+        params: "-",
+        value: "-",
+        defaultValue: "-"
+    },
+    {
+        attribute: "searchLabelPosition",
+        desc: "同option.searchLabelPosition",
+        dataType: "string",
+        params: "-",
+        value: "-",
+        defaultValue: "-"
+    },
+    {
+        attribute: "searchTip",
+        desc: "搜索提示内容",
+        dataType: "string",
+        params: "-",
+        value: "-",
+        defaultValue: "-"
+    },
+    {
+        attribute: "placeholder",
+        desc: "提示内容",
+        dataType: "string",
+        params: "-",
+        value: "-",
+        defaultValue: "-"
+    },
+    {
+        attribute: "label",
+        desc: "form对象的label标题",
+        dataType: "string",
+        params: "-",
+        value: "-",
+        defaultValue: "-"
+    },
+    {
+        attribute: "searchPlaceholder",
+        desc: "如果type等于search时生效，效果等同于placeholder",
+        dataType: "string",
+        params: "-",
+        value: "-",
+        defaultValue: "-"
+    },
+    {
+        attribute: "filterable",
+        desc: "",
+        dataType: "boolean",
+        params: "-",
+        value: "true/false",
+        defaultValue: "-"
+    },
+    {
+        attribute: "minWidth",
+        desc: "",
+        dataType: "",
+        params: "-",
+        value: "-",
+        defaultValue: "-"
+    },
+    {
+        attribute: "width",
+        desc: "",
+        dataType: "",
+        params: "-",
+        value: "-",
+        defaultValue: "-"
+    },
+    {
+        attribute: "align",
+        desc: "",
+        dataType: "",
+        params: "-",
+        value: "-",
+        defaultValue: "-"
+    },
+    {
+        attribute: "headerAlign",
+        desc: "",
+        dataType: "",
+        params: "-",
+        value: "-",
+        defaultValue: "-"
+    },
+    {
+        attribute: "prop",
+        desc: "",
+        dataType: "",
+        params: "-",
+        value: "-",
+        defaultValue: "-"
+    },
+    {
+        attribute: "display",
+        desc: "",
+        dataType: "",
+        params: "-",
+        value: "-",
+        defaultValue: "-"
+    },
+    {
+        attribute: "hide",
+        desc: "",
+        dataType: "",
+        params: "-",
+        value: "-",
+        defaultValue: "-"
+    },
+    {
+        attribute: "searchTipPlacement",
+        desc: "",
+        dataType: "",
+        params: "-",
+        value: "-",
+        defaultValue: "-"
+    },
+    {
+        attribute: "searchFilterMethod",
+        desc: "",
+        dataType: "",
+        params: "-",
+        value: "-",
+        defaultValue: "-"
+    },
+    {
+        attribute: "searchCheckStrictly",
+        desc: "同option.searchCheckStrictly",
+        dataType: "",
+        params: "-",
+        value: "-",
+        defaultValue: "-"
+    },
+    {
+        attribute: "searchTags",
+        desc: "",
+        dataType: "",
+        params: "-",
+        value: "-",
+        defaultValue: "-"
+    },
+    {
+        attribute: "tags",
+        desc: "",
+        dataType: "",
+        params: "-",
+        value: "-",
+        defaultValue: "-"
+    },
+    {
+        attribute: "searchRow",
+        desc: "",
+        dataType: "",
+        params: "-",
+        value: "-",
+        defaultValue: "-"
+    },
+    {
+        attribute: "row",
+        desc: "",
+        dataType: "",
+        params: "-",
+        value: "-",
+        defaultValue: "-"
+    },
+    {
+        attribute: "searchSize",
+        desc: "",
+        dataType: "",
+        params: "-",
+        value: "-",
+        defaultValue: "-"
+    },
+    {
+        attribute: "size",
+        desc: "",
+        dataType: "",
+        params: "-",
+        value: "-",
+        defaultValue: "-"
+    },
+    {
+        attribute: "searchClearable",
+        desc: "",
+        dataType: "",
+        params: "-",
+        value: "-",
+        defaultValue: "-"
+    },
+    {
+        attribute: "clearable",
+        desc: "",
+        dataType: "",
+        params: "-",
+        value: "-",
+        defaultValue: "-"
+    },
+    {
+        attribute: "searchRules",
+        desc: "",
+        dataType: "",
+        params: "-",
+        value: "-",
+        defaultValue: "-"
+    },
+    {
+        attribute: "rules",
+        desc: "",
+        dataType: "",
+        params: "-",
+        value: "-",
+        defaultValue: "-"
+    },
+    {
+        attribute: "searchDisabled",
+        desc: "",
+        dataType: "",
+        params: "-",
+        value: "-",
+        defaultValue: "-"
+    },
+    {
+        attribute: "disabled",
+        desc: "",
+        dataType: "",
+        params: "-",
+        value: "-",
+        defaultValue: "-"
+    },
+    {
+        attribute: "searchReadonly",
+        desc: "",
+        dataType: "",
+        params: "-",
+        value: "-",
+        defaultValue: "-"
+    },
+    {
+        attribute: "readonly",
+        desc: "",
+        dataType: "",
+        params: "-",
+        value: "-",
+        defaultValue: "-"
+    },
+    {
+        attribute: "searchValue",
+        desc: "搜索部分的默认值",
+        dataType: "string",
+        params: "-",
+        value: "-",
+        defaultValue: "-"
+    },
+    {
+        attribute: "value",
+        desc: "",
+        dataType: "",
+        params: "-",
+        value: "-",
+        defaultValue: "-"
+    },
+    {
+        attribute: "",
+        desc: "",
+        dataType: "boolean",
+        params: "-",
+        value: "true/false",
+        defaultValue: "false"
+    },
+    {
+        attribute: "",
+        desc: "",
+        dataType: "string",
+        params: "-",
+        value: "-",
+        defaultValue: ""
+    },
+    {
+        attribute: "",
+        desc: "",
+        dataType: "number",
+        params: "-",
+        value: "-",
+        defaultValue: ""
+    },
+    {
+        attribute: "",
+        desc: "",
+        dataType: "array",
+        params: "-",
+        value: "-",
+        defaultValue: "[]"
+    }
+];
+
+let slotSource=[
+    {
+        attribute: "menuLeft",
+        desc: "搜索区域下面列表上面的按钮操作区域的左边自定义区域，可以塞入你想要的塞的东西",
+        dataType: "-",
+        params: "-",
+        value: "-",
+        defaultValue: "-"
+    },
+   
+]
 
 let anchorSource = [
     {
@@ -292,6 +965,14 @@ let anchorSource = [
     {
         name: "API 属性",
         anchorPoint: "#ATTRIBUTES"
+    },
+    {
+        name: "API option",
+        anchorPoint: "#OPTION"
+    },
+    {
+        name: "API option.column",
+        anchorPoint: "#COLUMNOPTION"
     },
     {
         name: "API 事件",
@@ -304,6 +985,8 @@ export let TableData = {
     subTitle: subTitleSource,
     effectDesc: effectDescSource,
     attributes: attributesList,
+    option: optionList,
+    columnOption: columnOptionList,
     events: eventsList,
     anchor: anchorSource,
     scene: sceneSource

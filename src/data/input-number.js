@@ -14,122 +14,112 @@ let sceneSource = {
 
 let attributesList = [
     {
-        attribute: "value",
-        desc: "输入框内容",
-        dataType: "string",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "maxlength",
-        desc: "最大输入长度",
+        attribute: "precision",
+        desc: "数值精度，也就是几位小数",
         dataType: "number",
         params: "-",
+        value:"-",
         defaultValue: "-"
-    },
-    {
-        attribute: "minlength",
-        desc: "最小输入长度",
-        dataType: "number",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "showPassword",
-        desc: "是否显示切换密码图标",
-        dataType: "boolean",
-        params: "-",
-        defaultValue: "true"
-    },
-    {
-        attribute: "showWordLimit",
-        desc:
-            '是否显示输入字数统计，只在 type = "text" 或 type = "textarea" 时有效',
-        dataType: "boolean",
-        params: "-",
-        defaultValue: "false"
-    },
-    {
-        attribute: "prefixIcon",
-        desc: "输入框头部图标",
-        dataType: "string(element-icon) | slot(name=prefix)",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "suffixIcon",
-        desc: "输入框尾部图标",
-        dataType: "string(element-icon) | slot(name=suffix)",
-        params: "-",
-        defaultValue: "-"
-    },
-    {
-        attribute: "readonly",
-        desc: "是否只读",
-        dataType: "boolean",
-        params: "-",
-        defaultValue: "false"
     },
     {
         attribute: "placeholder",
-        desc: "输入框占位文本",
+        desc: "输入框默认 placeholder",
         dataType: "string",
         params: "-",
+        value:"-",
         defaultValue: "-"
     },
     {
-        attribute: "autosize",
-        desc:
-            '自适应内容高度，只对 type="textarea" 有效，可传入对象，如，{ minRows: 2, maxRows: 6 }',
-        dataType: "boolean | object",
+        attribute: "size",
+        desc: "计数器尺寸",
+        dataType: "string",
         params: "-",
-        defaultValue: "false"
+        value:"large/small",
+        defaultValue: "-"
+    },
+    {
+        attribute: "minRows",
+        desc: "设置计数器允许的最小值",
+        dataType: "number",
+        params: "-",
+        value:"-",
+        defaultValue: "-Infinity"
+    },
+    {
+        attribute: "maxRows",
+        desc: "设置计数器允许的最大值",
+        dataType: "number",
+        params: "-",
+        value:"-",
+        defaultValue: "Infinity"
+    },
+    {
+        attribute: "step",
+        desc: "计数器步长",
+        dataType: "number",
+        params: "-",
+        value:"-",
+        defaultValue: "1"
     },
     {
         attribute: "disabled",
-        desc: "是否禁用",
+        desc: "是否禁用计数器",
         dataType: "boolean",
         params: "-",
+        value:"true/false",
         defaultValue: "false"
     },
     {
-        attribute: "autocomplete",
-        desc: "自动补全(on | off)",
+        attribute: "controlsPosition",
+        desc: "控制按钮位置",
         dataType: "string",
         params: "-",
-        defaultValue: "off"
-    },
-    {
-        attribute: "prepend",
-        desc: "前置文字(只接受文字Avue源码定死了)",
-        dataType: "string",
-        params: "-",
+        value:"right",
         defaultValue: "-"
     },
     {
-        attribute: "append",
-        desc: "后置文字(只接受文字Avue源码定死了)",
-        dataType: "string",
+        attribute: "controls",
+        desc: "是否使用控制按钮",
+        dataType: "boolean",
         params: "-",
-        defaultValue: "-"
-    }
+        value:"true/false",
+        defaultValue: "true"
+    },
 ];
 
 let eventsList = [
     {
-        attribute: "prependClick",
-        desc: "前置文字点击事件",
+        attribute: "focus",
+        desc: "聚焦函数",
         dataType: "function",
-        params: "无",
-        defaultValue: "() => { }"
+        params: "-",
+        value:"-",
+        defaultValue: "-"
     },
     {
-        attribute: "appendClick",
-        desc: "后置文字点击事件",
+        attribute: "focus",
+        desc: "获得聚焦函数",
         dataType: "function",
-        params: "无",
-        defaultValue: "() => { }"
-    }
+        params: "-",
+        value:"-",
+        defaultValue: "-"
+    },
+    {
+        attribute: "blur",
+        desc: "失去焦点函数",
+        dataType: "function",
+        params: "-",
+        value:"-",
+        defaultValue: "-"
+    },
+    {
+        attribute: "click",
+        desc: "数字输入框点击输入框",
+        dataType: "function",
+        params: "-",
+        value:"-",
+        defaultValue: "-"
+    },
 ];
 
 let anchorSource = [

@@ -60,7 +60,7 @@ export default {
   color: rgba(0, 0, 0, 1);
 }
 .nav-group h3 {
-  padding: 10px 50px;
+  padding: 10px 20px;
   color: rgba(0, 0, 0, 0.45);
   border-bottom: 1px solid #ececec;
 }
@@ -68,7 +68,7 @@ export default {
   margin: 8px 0;
 }
 .nav-group li {
-  padding: 0 50px;
+  padding: 0 32px;
   height: 44px;
   margin: 4px 0 8px;
   display: flex;

@@ -5,6 +5,10 @@
       <span class="subtitle">{{subTitle}}</span>
       <p class="effectDesc">{{effectDesc}}</p>
     </h1>
+    <h2  v-if="preface" class="scene">
+      前言
+      <p style="margin-left: 36px;">{{preface}}</p>
+    </h2>
     <h2 class="scene">
       {{scene.title}}
       <p>{{scene.desc}}</p>
@@ -30,6 +34,10 @@ export default {
       default: ""
     },
     effectDesc: {
+      type: String,
+      default: ""
+    },
+    preface:{
       type: String,
       default: ""
     },

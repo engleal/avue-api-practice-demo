@@ -8,10 +8,14 @@
             <avue-input-tree
               default-expand-all
               v-model="form"
+              multiple
               placeholder="请选择内容"
               type="tree"
               :dic="dic"
-              @focus="handleFocus2"
+              @focus="handleFocus"
+              @blur="handleBlur"
+              @input="handleInput"
+              @change="handleChange"
             ></avue-input-tree>
           </template>
           <div slot="source-code">
@@ -21,6 +25,7 @@
           </div>
         </rc-code-card>
         <rc-table title="API 属性" id="ATTRIBUTES" :dataSource="attributesSource"></rc-table>
+        <rc-table title="API 属性 option" id="ATTRIBUTEOPTION" :dataSource="attributeOptionSource"></rc-table>
         <rc-table title="API 事件" id="EVENTS" :dataSource="eventSource"></rc-table>
       </template>
       <template slot="anchor">
@@ -42,6 +47,7 @@ export default {
       scene: ComponentSource.inputTree.scene,
       anchorSource: ComponentSource.inputTree.anchor,
       attributesSource: ComponentSource.inputTree.attributes,
+      attributeOptionSource: ComponentSource.inputTree.attributeOption,
       eventSource: ComponentSource.inputTree.events,
       codeSnippet: "",
       form: "",
@@ -85,8 +91,17 @@ export default {
   destroyed() {},
   // 方法合集
   methods: {
-    handleFocus2(event){
-      console.log("event", event);
+    handleFocus(event) {
+      console.log("blur-event", event);
+    },
+    handleBlur(event) {
+      console.log("blur-event", event);
+    },
+    handleInput(event) {
+      console.log("input-event", event);
+    },
+    handleChange(event) {
+      console.log("change-event", event);
     }
   },
   // 计算属性 一个数据受多个数据影响

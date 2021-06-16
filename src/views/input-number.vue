@@ -10,7 +10,7 @@
        ></rc-markdown>
        <rc-code-card title="基本用法" desc="基本使用。" id="JCYF">
          <template slot="effect">
-            
+             <avue-input-number v-model="form" controlsPosition="center"></avue-input-number>
          </template>
          <div slot="source-code">
            <pre>
@@ -40,7 +40,7 @@ export default {
         scene: ComponentSource.inputNumber.scene,
         anchorSource: ComponentSource.inputNumber.anchor,
         codeSnippet: "",
-        aVueValue: "我是内容",
+         form:1,
         attributesSource: ComponentSource.inputNumber.attributes,
         eventSource: ComponentSource.inputNumber.events
     };

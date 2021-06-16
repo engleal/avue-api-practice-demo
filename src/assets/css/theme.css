@@ -5,35 +5,35 @@
         /* 主要文字颜色 */
         --main-title-color: #000000;
         /* 主要文字颜色 白色 */
-        --main-title-color-light: #FFF;
+        --main-title-color-light: #fff;
         /* 副标题文字颜色 */
-        --sub-title-color: #CCCCCC;
+        --sub-title-color: #cccccc;
         /* 副标题文字颜色 更浅 */
         --sub-light-title-color: #919797;
         /* 激活文字颜色 */
-        --active-title-color: #00A4FF;
+        --active-title-color: #00a4ff;
         /* 正文颜色 */
         --mian-text-color: #666666;
         /* 主要背景色 */
-        --main-background-color: #FFF;
+        --main-background-color: #fff;
         /* 主要背景色 深色 */
         --main-dark-background-color: #000;
         /* 次要背景色 */
-        --sub-background-color: #F7F8FA;
+        --sub-background-color: #f7f8fa;
         /* 弹框透明弹层 */
         --dialog-background-color: rgba(0, 0, 0, 0.3);
         /* 激活背景色 */
-        --active-background-color: #00A4FF;
+        --active-background-color: #00a4ff;
         /* 透明背景色 */
         --transparent-background-color: transparent;
         /* 阴影 */
         --shadow: 0 2px 14px 0 rgba(12, 6, 6, 0.08);
         /* 激活的阴影 */
-        --active-shadow: 0 2px 14px 0 rgba(0, 0, 0, .3);
+        --active-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.3);
         /* 边框主要颜色 */
-        --mian-border-color: #ECECEC;
+        --mian-border-color: #ececec;
         /* 激活边框 */
-        --active-border-color: #00A4FF;
+        --active-border-color: #00a4ff;
     }
 }
 
@@ -44,34 +44,34 @@
         /* 主要文字颜色 */
         --main-title-color: #000000;
         /* 主要文字颜色 白色 */
-        --main-title-color-light: #FFF;
+        --main-title-color-light: #fff;
         /* 副标题文字颜色 */
-        --sub-title-color: #CCCCCC;
+        --sub-title-color: #cccccc;
         /* 副标题文字颜色 更浅 */
         --sub-light-title-color: #919797;
         /* 激活文字颜色 */
-        --active-title-color: #00A4FF;
+        --active-title-color: #00a4ff;
         /* 正文颜色 */
         --mian-text-color: #666666;
         /* 主要背景色 */
-        --main-background-color: #FFF;
+        --main-background-color: #fff;
         /* 主要背景色 深色 */
         --main-dark-background-color: #000;
         /* 次要背景色 */
-        --sub-background-color: #F7F8FA;
+        --sub-background-color: #f7f8fa;
         /* 弹框透明弹层 */
         --dialog-background-color: rgba(0, 0, 0, 0.3);
         /* 激活背景色 */
-        --active-background-color: #00A4FF;
+        --active-background-color: #00a4ff;
         /* 透明背景色 */
         --transparent-background-color: transparent;
         /* 阴影 */
         --shadow: 0 2px 14px 0 rgba(12, 6, 6, 0.08);
         /* 激活的阴影 */
-        --active-shadow: 0 2px 14px 0 rgba(0, 0, 0, .3);
+        --active-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.3);
         /* 边框主要颜色 */
-        --mian-border-color: #ECECEC;
+        --mian-border-color: #ececec;
         /* 激活边框 */
-        --active-border-color: #00A4FF;
+        --active-border-color: #00a4ff;
     }
 }

@@ -6,34 +6,35 @@
         <rc-nav :dataSource="navSource" :defaultSelected="selected"></rc-nav>
       </div>
       <div class="app-content">
-        <router-view/>
+        <router-view />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { navList } from "@/router/router";
-import { location } from "@/assets/utils/location"
+import { navList } from '@/router/router'
+import { location } from '@/assets/utils/location'
 export default {
-  name: "App",
-  data: function() {
+  name: 'App',
+  data: function () {
     return {
-      navSource: navList,
-    };
+      navSource: navList
+    }
   },
-  computed:{
-    selected(){
-      return location.hash();
+  computed: {
+    selected () {
+      return location.hash()
     }
   }
-};
+}
 </script>
 
 <style>
 #app {
   background-color: #fff;
 }
+
 .app-body {
   overflow: hidden;
   margin-top: 40px;
