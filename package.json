@@ -11,7 +11,16 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "vue": "^2.5.2",
+    "@sentry/tracing": "^6.7.1",
+    "@sentry/vue": "^6.7.1",
+    "@smallwei/avue": "^2.8.13",
+    "axios": "^0.21.1",
+    "element-ui": "^2.15.2",
+    "eslint-plugin-html": "^6.1.2",
+    "nprogress": "^0.2.0",
+    "prismjs": "^1.23.0",
+    "vue": "^2.6.14",
+    "vue-axios": "^3.2.4",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {

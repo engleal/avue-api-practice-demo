@@ -1,40 +1,38 @@
-let titleSource = "avue-radio";
+const titleSource = 'avue-radio'
 
-let subTitleSource = "";
+const subTitleSource = ''
 
-let effectDescSource = "";
+const effectDescSource = ''
 
-let sceneSource = {
-    title: "何时使用",
-    desc: "",
-    features: [
-        ""
-    ]
-};
+const sceneSource = {
+	title: '何时使用',
+	desc: '',
+	features: []
+}
 
-let attributesList = [
-    {
-        attribute: "size",
-        desc: "输入框尺寸",
-        dataType: "string",
-        params: "-",
-        value: "large|small|mini",
-        defaultValue: "-"
-    },
-    {
-        attribute: "disabled",
-        desc: "是否禁用",
-        dataType: "boolean",
-        params: "-",
-        value: "true/false",
-        defaultValue: "false"
-    },
-    {
-        attribute: "dic",
-        desc: "数据源",
-        dataType: "array",
-        params: ``,
-        value:`array=[{
+const attributesList = [
+	{
+		attribute: 'size',
+		desc: '输入框尺寸',
+		dataType: 'string',
+		params: '-',
+		value: 'large|small|mini',
+		defaultValue: '-'
+	},
+	{
+		attribute: 'disabled',
+		desc: '是否禁用',
+		dataType: 'boolean',
+		params: '-',
+		value: 'true/false',
+		defaultValue: 'false'
+	},
+	{
+		attribute: 'dic',
+		desc: '数据源',
+		dataType: 'array',
+		params: ``,
+		value: `array=[{
             // 后台的数据值
             value:"",
             // 要禁用的数据项的
@@ -42,58 +40,58 @@ let attributesList = [
             // 显示的值
             label:""
         }]`,
-        efaultValue: "[]"
-    },
-    {
-        attribute: "border",
-        desc: "是否显示边框",
-        dataType: "boolean",
-        params: "-",
-        defaultValue: "false"
-    },
-    {
-        attribute: "readonly",
-        desc: "是否只读",
-        dataType: "boolean",
-        params: "-",
-        value: "true/false",
-        defaultValue: "false"
-    }
-];
+		efaultValue: '[]'
+	},
+	{
+		attribute: 'border',
+		desc: '是否显示边框',
+		dataType: 'boolean',
+		params: '-',
+		defaultValue: 'false'
+	},
+	{
+		attribute: 'readonly',
+		desc: '是否只读',
+		dataType: 'boolean',
+		params: '-',
+		value: 'true/false',
+		defaultValue: 'false'
+	}
+]
 
-let eventsList = [
-    {
-        attribute: "change",
-        desc: "选中数据时触发",
-        dataType: "function",
-        params: `1、value：dic数据源中对应数据的valueKey字段的值
+const eventsList = [
+	{
+		attribute: 'change',
+		desc: '选中数据时触发',
+		dataType: 'function',
+		params: `1、value：dic数据源中对应数据的valueKey字段的值
         2、event：事件对象`,
-        value:"",
-        defaultValue: "(value,event) => { }"
-    },
-];
+		value: '',
+		defaultValue: '(value,event) => { }'
+	}
+]
 
-let anchorSource = [
-    {
-        name: "基本用法",
-        anchorPoint: "#JCYF"
-    },
-    {
-        name: "API 属性",
-        anchorPoint: "#ATTRIBUTES"
-    },
-    {
-        name: "API 事件",
-        anchorPoint: "#EVENTS"
-    }
-];
+const anchorSource = [
+	{
+		name: '基本用法',
+		anchorPoint: '#JCYF'
+	},
+	{
+		name: 'API 属性',
+		anchorPoint: '#ATTRIBUTES'
+	},
+	{
+		name: 'API 事件',
+		anchorPoint: '#EVENTS'
+	}
+]
 
-export let RadioData = {
-    title:titleSource,
-    subTitle:subTitleSource,
-    effectDesc:effectDescSource,
-    attributes: attributesList,
-    events: eventsList,
-    anchor: anchorSource,
-    scene:sceneSource
-};
+export const RadioData = {
+	title: titleSource,
+	subTitle: subTitleSource,
+	effectDesc: effectDescSource,
+	attributes: attributesList,
+	events: eventsList,
+	anchor: anchorSource,
+	scene: sceneSource
+}

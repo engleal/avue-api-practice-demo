@@ -3,7 +3,7 @@
     <rc-header></rc-header>
     <div class="app-body">
       <div class="nav-container">
-        <rc-nav :dataSource="navSource" :defaultSelected="selected"></rc-nav>
+        <rc-nav :data-source="navSource" :default-selected="selected"></rc-nav>
       </div>
       <div class="app-content">
         <router-view />
@@ -14,42 +14,42 @@
 
 <script>
 import { navList } from '@/router/router'
-import { location } from '@/assets/utils/location'
+import { location } from '@/utils/location'
 export default {
-  name: 'App',
-  data: function () {
-    return {
-      navSource: navList
-    }
-  },
-  computed: {
-    selected () {
-      return location.hash()
-    }
-  }
+	name: 'App',
+	data: function() {
+		return {
+			navSource: navList
+		}
+	},
+	computed: {
+		selected() {
+			return location.hash()
+		}
+	}
 }
 </script>
 
 <style>
 #app {
-  background-color: #fff;
+	background-color: #fff;
 }
 
 .app-body {
-  overflow: hidden;
-  margin-top: 40px;
+	overflow: hidden;
+	margin-top: 40px;
 }
 .nav-container {
-  width: 300px;
-  float: left;
+	width: 300px;
+	float: left;
 }
 .app-content {
-  margin-left: 300px;
-  width: -webkit-fill-available;
+	margin-left: 300px;
+	width: -webkit-fill-available;
 }
 .page-container {
-  max-height: calc(100vh - 64px - 40px);
-  overflow-x: hidden;
-  overflow-y: auto;
+	max-height: calc(100vh - 64px - 40px);
+	overflow-x: hidden;
+	overflow-y: auto;
 }
 </style>

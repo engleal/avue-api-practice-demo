@@ -1,33 +1,30 @@
-let titleSource = "avue-login";
+const titleSource = 'avue-login'
 
-let subTitleSource = "";
+const subTitleSource = ''
 
-let effectDescSource = "";
+const effectDescSource = ''
 
-let sceneSource = {
-    title: "何时使用",
-    desc: "",
-    features: [
-        ""
-    ]
-};
+const sceneSource = {
+	title: '何时使用',
+	desc: '',
+	features: []
+}
 
-let attributesList = [
-    {
-        
-        attribute: "codesrc",
-        desc: "数据配验证码输入框为图片模式时的图片地址",
-        dataType: "object",
-        params: "-",
-        value:'',
-        defaultValue: "-"
-    },
-    {
-        attribute: "option",
-        desc: "数据配置对象",
-        dataType: "object",
-        params: "-",
-        value:`option={
+const attributesList = [
+	{
+		attribute: 'codesrc',
+		desc: '数据配验证码输入框为图片模式时的图片地址',
+		dataType: 'object',
+		params: '-',
+		value: '',
+		defaultValue: '-'
+	},
+	{
+		attribute: 'option',
+		desc: '数据配置对象',
+		dataType: 'object',
+		params: '-',
+		value: `option={
             // 设置label宽度
             labelWidth:number,
             // 验证码时间
@@ -104,58 +101,58 @@ let attributesList = [
 
             }
         }`,
-        defaultValue: "-"
-    },
-];
+		defaultValue: '-'
+	}
+]
 
-let eventsList = [
-    {
-        attribute: "send",
-        desc: "验证码发送函数",
-        dataType: "function",
-        params: "void",
-        value:"",
-        defaultValue: "() => { }"
-    },
-    {
-        attribute: "refresh",
-        desc: "验证码刷新函数",
-        dataType: "function",
-        params: "void",
-        value:"",
-        defaultValue: "() => { }"
-    },
-    {
-        attribute: "submit",
-        desc: "提交函数",
-        dataType: "function",
-        params: "form",
-        value:"-",
-        defaultValue: "(form) => { }"
-    }
-];
+const eventsList = [
+	{
+		attribute: 'send',
+		desc: '验证码发送函数',
+		dataType: 'function',
+		params: 'void',
+		value: '',
+		defaultValue: '() => { }'
+	},
+	{
+		attribute: 'refresh',
+		desc: '验证码刷新函数',
+		dataType: 'function',
+		params: 'void',
+		value: '',
+		defaultValue: '() => { }'
+	},
+	{
+		attribute: 'submit',
+		desc: '提交函数',
+		dataType: 'function',
+		params: 'form',
+		value: '-',
+		defaultValue: '(form) => { }'
+	}
+]
 
-let anchorSource = [
-    {
-        name: "基本用法",
-        anchorPoint: "#JCYF"
-    },
-    {
-        name: "API 属性",
-        anchorPoint: "#ATTRIBUTES"
-    },
-    {
-        name: "API 事件",
-        anchorPoint: "#EVENTS"
-    }
-];
+const anchorSource = [
+	{
+		name: '基本用法',
+		anchorPoint: '#JCYF'
+	},
+	{
+		name: 'API 属性',
+		anchorPoint: '#ATTRIBUTES'
+	},
+	{
+		name: 'API 事件',
+		anchorPoint: '#EVENTS'
+	}
+]
 
-export let LoginData = {
-    title:titleSource,
-    subTitle:subTitleSource,
-    effectDesc:effectDescSource,
-    attributes: attributesList,
-    events: eventsList,
-    anchor: anchorSource,
-    scene:sceneSource
-};
+export const LoginData = {
+	title: titleSource,
+	subTitle: subTitleSource,
+	effectDesc: effectDescSource,
+	attributes: attributesList,
+	events: eventsList,
+	anchor: anchorSource,
+	scene: sceneSource
+}
