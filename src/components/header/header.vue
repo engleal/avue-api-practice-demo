@@ -8,12 +8,18 @@
           class="logo-image"
         />
       </div>
-      <div class="right-operate">暂不确定右边</div>
+      <div class="right-operate">
+        <span class="item theme-item" @click="handleThemeChange">
+          <i :class="theme"></i>
+        </span>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+const LIGHTTHEME = 'el-avue-rijianmoshi'
+const DARKTHEME = 'el-avue-dark'
 export default {
 	name: 'rocky-core-header',
 	props: {
@@ -22,11 +28,19 @@ export default {
 			default: ''
 		}
 	},
-	// 生命周期
-	created() {},
+	data() {
+		return {
+			theme: LIGHTTHEME
+		}
+	},
 	methods: {
-		exampleClickEvent: function() {
-			console.log('exampleClickEvent 点击事件')
+		// 改变主题
+		handleThemeChange() {
+			if (this.theme === LIGHTTHEME) {
+				this.theme = DARKTHEME
+			} else {
+				this.theme = LIGHTTHEME
+			}
 		}
 	}
 }
@@ -54,5 +68,11 @@ export default {
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
+}
+.right-operate .item {
+	margin: 0 10px;
+}
+.right-operate .item i {
+	font-size: 24px;
 }
 </style>

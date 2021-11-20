@@ -9,12 +9,13 @@
         <router-view />
       </div>
     </div>
+    <rc-theme></rc-theme>
   </div>
 </template>
 
 <script>
 import { navList } from '@/router/router'
-import { location } from '@/utils/location'
+// import { location } from '@/utils/location'
 export default {
 	name: 'App',
 	data: function() {
@@ -24,7 +25,7 @@ export default {
 	},
 	computed: {
 		selected() {
-			return location.hash()
+			return ''
 		}
 	}
 }

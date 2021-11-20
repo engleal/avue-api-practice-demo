@@ -1,0 +1,132 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 2897842 */
+  src: url("iconfont.woff2?t=1635343660368") format("woff2"),
+    url("iconfont.woff?t=1635343660368") format("woff"),
+    url("iconfont.ttf?t=1635343660368") format("truetype");
+}
+
+[class^="el-avue-"] {
+  font-family: "iconfont" !important;
+  /* 以下内容参照第三方图标库本身的规则 */
+  font-size: 18px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="el-avue"], [class*="el-avue"]/* 这里有空格 */
+ {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.el-avue-check-circle:before {
+  content: "\e77d";
+}
+
+.el-avue-CI:before {
+  content: "\e77e";
+}
+
+.el-avue-Dollar:before {
+  content: "\e77f";
+}
+
+.el-avue-compass:before {
+  content: "\e780";
+}
+
+.el-avue-close-circle:before {
+  content: "\e781";
+}
+
+.el-avue-frown:before {
+  content: "\e782";
+}
+
+.el-avue-info-circle:before {
+  content: "\e783";
+}
+
+.el-avue-left-circle:before {
+  content: "\e784";
+}
+
+.el-avue-down-circle:before {
+  content: "\e785";
+}
+
+.el-avue-EURO:before {
+  content: "\e786";
+}
+
+.el-avue-copyright:before {
+  content: "\e787";
+}
+
+.el-avue-minus-circle:before {
+  content: "\e788";
+}
+
+.el-avue-meh:before {
+  content: "\e789";
+}
+
+.el-avue-plus-circle:before {
+  content: "\e78a";
+}
+
+.el-avue-play-circle:before {
+  content: "\e78b";
+}
+
+.el-avue-question-circle:before {
+  content: "\e78c";
+}
+
+.el-avue-Pound:before {
+  content: "\e78d";
+}
+
+.el-avue-right-circle:before {
+  content: "\e78e";
+}
+
+.el-avue-Batchfolding:before {
+  content: "\e7bf";
+}
+
+.el-avue-securityscan:before {
+  content: "\e7c0";
+}
+
+.el-avue-propertysafety:before {
+  content: "\e7c1";
+}
+
+.el-avue-safetycertificate:before {
+  content: "\e7c2";
+}
+
+.el-avue-insurance:before {
+  content: "\e7c3";
+}
+
+.el-avue-alert:before {
+  content: "\e7c4";
+}
+
+.el-avue-delete:before {
+  content: "\e7c5";
+}
+
+.el-avue-hourglass:before {
+  content: "\e7c6";
+}
+
+.el-avue-bulb:before {
+  content: "\e7c7";
+}

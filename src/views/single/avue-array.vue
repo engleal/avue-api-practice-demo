@@ -9,24 +9,7 @@
           :scene="scene"
         ></rc-markdown>
         <rc-code-card id="JCYF" title="基本用法" desc="基本使用。">
-          <template slot="effect">
-            <avue-input-icon
-              v-model="form"
-              :icon-list="iconList"
-              placeholder="请选择图标"
-              @change="handleChange"
-            ></avue-input-icon>
-          </template>
-          <div slot="sourceCode">
-            <pre>
-              <code class="language-xml line-numbers">{{ codeSnippet }}</code>
-            </pre>
-          </div>
-        </rc-code-card>
-        <rc-code-card id="THIRD" title="第三方icon" desc="第三方icon用法">
-          <template slot="effect">
-            <i class="el-avue-check-circle"></i>
-          </template>
+          <template slot="effect"> </template>
           <div slot="sourceCode">
             <pre>
               <code class="language-xml line-numbers">{{ codeSnippet }}</code>
@@ -54,53 +37,20 @@
 import Prism from 'prismjs'
 import ComponentSource from './index'
 export default {
-	name: 'InputIcon',
+	name: 'InputArray',
 	// 过滤器
 	filters: {},
 	data() {
 		return {
-			title: ComponentSource.inputIcon.title,
-			subTitle: ComponentSource.inputIcon.subTitle,
-			effectDesc: ComponentSource.inputIcon.effectDesc,
-			scene: ComponentSource.inputIcon.scene,
-			anchorSource: ComponentSource.inputIcon.anchor,
+			title: ComponentSource.array.title,
+			subTitle: ComponentSource.array.subTitle,
+			effectDesc: ComponentSource.array.effectDesc,
+			scene: ComponentSource.array.scene,
+			anchorSource: ComponentSource.array.anchor,
 			codeSnippet: '',
-			attributesSource: ComponentSource.inputIcon.attributes,
-			eventSource: ComponentSource.inputIcon.events,
-			form: 'el-icon-info',
-			iconList: [
-				{
-					label: '基本图标',
-					list: [
-						'el-icon-info',
-						'el-icon-error',
-						'el-icon-error',
-						'el-icon-success',
-						'el-icon-warning',
-						'el-icon-question'
-					]
-				},
-				{
-					label: '方向图标',
-					list: [
-						'el-icon-info',
-						'el-icon-back',
-						'el-icon-arrow-left',
-						'el-icon-arrow-down',
-						'el-icon-arrow-right',
-						'el-icon-arrow-up'
-					]
-				},
-				{
-					label: '符号图标',
-					list: [
-						'el-icon-plus',
-						'el-icon-minus',
-						'el-icon-close',
-						'el-icon-check'
-					]
-				}
-			]
+			aVueValue: '我是内容',
+			attributesSource: ComponentSource.array.attributes,
+			eventSource: ComponentSource.array.events
 		}
 	},
 	// 计算属性 一个数据受多个数据影响
@@ -124,11 +74,7 @@ export default {
 	// 实例销毁后
 	destroyed() {},
 	// 方法合集
-	methods: {
-		handleChange(item) {
-			console.log('item', item)
-		}
-	}
+	methods: {}
 }
 </script>
 <style scoped></style>

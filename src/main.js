@@ -1,11 +1,11 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import '@/assets/css/global.css'
 import '@/assets/css/prism-plugins.css'
 import '@/assets/css/prism.css'
 import '@/assets/css/theme.css'
 import '@/assets/css/variable.css'
-import RcCrud from '@/components/crud'
+import '@/assets/icon/iconfont.css'
+import { iconfontUrl, iconfontVersion } from '@/config/icon'
+import { loadStyle } from '@/utils/util'
 import { Integrations } from '@sentry/tracing'
 import * as Sentry from '@sentry/vue'
 import Avue from '@smallwei/avue'
@@ -22,12 +22,10 @@ Vue.use(Avue, {
 	size: 'small',
 	menuType: 'text'
 })
-Vue.use(VueAxios)
+Vue.use(VueAxios, 'axios')
 Vue.use(Element)
 
 Prism.highlightAll()
-// 注册全局RcCrud组件
-Vue.component('RcCrud', RcCrud)
 Vue.use(RockyCore)
 Sentry.init({
 	Vue,
@@ -36,6 +34,10 @@ Sentry.init({
 	tracesSampleRate: 1.0,
 	logErrors: true,
 	attachProps: true
+})
+// 动态加载阿里云字体库
+iconfontVersion.forEach(ele => {
+	loadStyle(iconfontUrl.replace('$key', ele))
 })
 Vue.config.productionTip = false
 new Vue({

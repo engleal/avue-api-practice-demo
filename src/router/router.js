@@ -2,6 +2,7 @@ import Affix from '@/views/affix'
 import InputArray from '@/views/array'
 import Article from '@/views/article'
 import Avatar from '@/views/avatar'
+import AvueCrud from '@/views/avue-crud'
 import Card from '@/views/card'
 import Cascader from '@/views/cascader'
 import Chat from '@/views/chat'
@@ -25,7 +26,8 @@ import DataRotate from '@/views/data-rotate'
 import DataTabs from '@/views/data-tabs'
 import Date from '@/views/date'
 import Draggable from '@/views/draggable'
-import Else from '@/views/else'
+import ElMenu from '@/views/else/elMenu'
+import Print from '@/views/else/print'
 import Empty from '@/views/empty'
 import ExportExcel from '@/views/export-excel'
 import ExportXlsx from '@/views/export-xlsx'
@@ -44,7 +46,6 @@ import License from '@/views/license'
 import Login from '@/views/login'
 import Notice from '@/views/notice'
 import NProgress from '@/views/nprogress'
-import Print from '@/views/print'
 import Radio from '@/views/radio'
 import Rate from '@/views/rate'
 import ScreenShot from '@/views/screenshot'
@@ -54,7 +55,6 @@ import Sign from '@/views/sign'
 import Skeleton from '@/views/skeleton'
 import Slider from '@/views/slider'
 import Switch from '@/views/switch'
-import Table from '@/views/table'
 import Tabs from '@/views/tabs'
 import TextEllipsis from '@/views/text-ellipsis'
 import Time from '@/views/time'
@@ -62,7 +62,6 @@ import Tree from '@/views/tree'
 import Verify from '@/views/verify'
 import Video from '@/views/video'
 import Watermark from '@/views/watermark'
-
 // 其他组件
 const partGroup = {
 	groupName: '其他组件',
@@ -336,9 +335,9 @@ const tableGroup = {
 	groupKey: 'group3',
 	list: [
 		{
-			path: '/table',
+			path: '/avueCrud',
 			name: 'avue-crud',
-			component: Table,
+			component: AvueCrud,
 			desc: '表格组件'
 		}
 	]
@@ -475,10 +474,16 @@ const elseGroup = {
 	groupKey: 'group7',
 	list: [
 		{
-			path: '/else',
-			name: 'else',
-			component: Else,
-			desc: 'else组件'
+			path: '/else/elMenu',
+			name: 'elMenu',
+			component: ElMenu,
+			desc: 'elMenu组件'
+		},
+		{
+			path: '/else/print',
+			name: 'Print',
+			component: Print,
+			desc: 'Print组件'
 		}
 	]
 }
